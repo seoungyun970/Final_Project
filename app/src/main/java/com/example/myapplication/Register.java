@@ -22,7 +22,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
     EditText editTxt_ID;
     EditText editTxt_PW;
-
     Button btn_Register;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
         editTxt_ID = (EditText)findViewById(R.id.editTxt_ID);
         editTxt_PW = (EditText)findViewById(R.id.editTxt_PW);
-
         btn_Register = (Button)findViewById(R.id.btn_Register);
         btn_Register.setOnClickListener(this);
     }
