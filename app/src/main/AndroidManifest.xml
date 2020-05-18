@@ -25,6 +25,8 @@
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".AddressActivity"></activity>
-<!--        <activity android:name=".FoodActivity"></activity>-->
+        <activity android:name=".FoodActivity"></activity>
+        <activity android:name=".main"></activity>
+        <activity android:name=".manager"></activity>
     </application>
 </manifest>

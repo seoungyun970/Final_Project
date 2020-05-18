@@ -11,17 +11,31 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
 public class RegisterActivity extends Activity implements View.OnClickListener {
+
     Button register_checkBtn;
     EditText register_id,register_pw,register_name,register_phone;
+    RadioButton student,manager;
+    String id,pwd;
+    String check_result;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
@@ -43,22 +57,41 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
         register_id=findViewById(R.id.register_id);
         register_pw=findViewById(R.id.register_pw);
+
         register_name=findViewById(R.id.register_name);
         register_phone=findViewById(R.id.register_phone);
         register_checkBtn=findViewById(R.id.register_checkBtn);
+        student=findViewById(R.id.reg_Teacher);
+        manager=findViewById(R.id.reg_Parent);
         register_checkBtn.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View v) {
-        switch(v.getId())
-        {
-            case R.id.register_checkBtn:
-                RegisterUser task = new RegisterUser();
-                task.execute(register_id.getText().toString(), register_pw.getText().toString()); //1번
-                break;
+        pwd=(String)register_pw.getText().toString();
+        id=(String)register_name.getText().toString();
+        if(student.isChecked()){
+            check_result="0";
         }
+        if(manager.isChecked()){
+            check_result="1";
+        }
+        if(pwd.equals("")==false){
+
+                switch(v.getId())
+                {
+                    case R.id.register_checkBtn:
+                        RegisterUser task = new RegisterUser();
+                        task.execute(register_id.getText().toString(), register_pw.getText().toString(),
+                                register_name.getText().toString(),register_phone.getText().toString(),check_result.toString()); //1번
+
+                        break;
+                }
+
+
+        }
+
     }
 
     private class RegisterUser  extends AsyncTask<String, String, String>
@@ -75,15 +108,19 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         //2번
         protected String doInBackground(String... params) {
             try {
-                String URL = "http://3.12.173.221:8080/SunhanWeb/regis.jsp";
+                String URL = "http://3.12.173.221:8080/SunhanWeb/android/regis.jsp";
 
                 String _id = (String) params[0];
                 String _pw = (String) params[1];
-
+                String _name=(String) params[2];
+                String _phone=(String) params[3];
+                String _check=(String) params[4];
                 System.out.println(_id);
                 System.out.println(_pw);
-
-                String url_address = URL + "?id=" + _id + "&pw=" + _pw;
+                System.out.println(_name);
+                System.out.println(_phone);
+                System.out.println(_check);
+                String url_address = URL + "?id=" + _id + "&pw=" + _pw + "&name=" + _name+ "&phone=" + _phone+"&check=" + _check;
 
                 System.out.println(url_address);
                 register_url = new URL(url_address);
@@ -112,11 +149,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
             super.onPostExecute(result);
             loading.dismiss();
             System.out.println(result);
-            if(result.contains("success"))
-            {
-                Intent intent = new Intent(RegisterActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
-            }
+
         }
     }
 }
