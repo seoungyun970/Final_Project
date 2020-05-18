@@ -1,48 +1,66 @@
 package com.example.myapplication;
+
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-
-import java.io.IOException;
-import java.lang.Object;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Display;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
 import java.io.BufferedReader;
-import java.io.EOFException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class Register extends AppCompatActivity implements View.OnClickListener {
-
-    EditText editTxt_ID;
-    EditText editTxt_PW;
-    Button btn_Register;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+public class RegisterActivity extends Activity implements View.OnClickListener {
+    Button register_checkBtn;
+    EditText register_id,register_pw,register_name,register_phone;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register);
+        setContentView(R.layout.activity_register);
 
-        editTxt_ID = (EditText)findViewById(R.id.editTxt_ID);
-        editTxt_PW = (EditText)findViewById(R.id.editTxt_PW);
-        btn_Register = (Button)findViewById(R.id.btn_Register);
-        btn_Register.setOnClickListener(this);
+        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        // 윈도우 매니저 객체 얻어오고 디스플레이 객체 얻어오기
+        int width = (int) (display.getWidth() * 0.9);
+        // 얻어온 화면의 폭의 90프로만큼 width에 지정
+        int height = (int) (display.getHeight() * 0.7);
+        // 얻어온 화면의 높이의 70프로 만큼 height에 지정
+        getWindow().getAttributes().width = width;
+        //멤버십팝업 레이아웃의 폭을 width로 지정
+        getWindow().getAttributes().height = height;
+        //멤버십팝업 레이아웃의 폭을 height 지정
+        getWindow().setGravity(Gravity.CENTER);
+        //멤버십팝업 레이아웃 센터지정
+
+
+
+        register_id=findViewById(R.id.register_id);
+        register_pw=findViewById(R.id.register_pw);
+        register_name=findViewById(R.id.register_name);
+        register_phone=findViewById(R.id.register_phone);
+        register_checkBtn=findViewById(R.id.register_checkBtn);
+        register_checkBtn.setOnClickListener(this);
     }
+
+
     @Override
     public void onClick(View v) {
         switch(v.getId())
         {
-            case R.id.btn_Register:
+            case R.id.register_checkBtn:
                 RegisterUser task = new RegisterUser();
-                task.execute(editTxt_ID.getText().toString(), editTxt_PW.getText().toString()); //1번
+                task.execute(register_id.getText().toString(), register_pw.getText().toString()); //1번
                 break;
         }
     }
+
     private class RegisterUser  extends AsyncTask<String, String, String>
     {
         ProgressDialog loading;
@@ -50,7 +68,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
         protected void onPreExecute() {
             super.onPreExecute();
-            loading = ProgressDialog.show(Register.this, "Please Wait", null, true, true);
+            loading = ProgressDialog.show(RegisterActivity.this, "Please Wait", null, true, true);
         }
 
         @Override
@@ -67,6 +85,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
                 String url_address = URL + "?id=" + _id + "&pw=" + _pw;
 
+                System.out.println(url_address);
                 register_url = new URL(url_address);
                 BufferedReader in = new BufferedReader(new InputStreamReader(register_url.openStream()));
 
@@ -95,7 +114,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             System.out.println(result);
             if(result.contains("success"))
             {
-                Intent intent = new Intent(Register.this, Register.class);
+                Intent intent = new Intent(RegisterActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         }

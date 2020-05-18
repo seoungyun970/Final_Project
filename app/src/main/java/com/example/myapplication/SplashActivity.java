@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
 
         @Override
         public void run() {
-            startActivity(new Intent(getApplication(),Register.class)); //로딩 후 메인으로 넘어감
+            startActivity(new Intent(getApplication(),LoginActivity.class)); //로딩 후 메인으로 넘어감
             SplashActivity.this.finish(); // Activity stack 제거
         }
     }

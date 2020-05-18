@@ -22,5 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Register"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".AddressActivity"></activity>
+<!--        <activity android:name=".FoodActivity"></activity>-->
     </application>
 </manifest>
