@@ -115,13 +115,13 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 Toast.makeText(getApplicationContext(),"비밀번호가 맞지 않습니다.",Toast.LENGTH_LONG).show();
             }
             if(result1.equals("1")){
-                Intent intent1=new Intent(LoginActivity.this,main.class);
+                Intent intent1=new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent1);
             }
 
             if(result1.equals("2")){
                 System.out.println(result1);
-                Intent intent=new Intent(LoginActivity.this,manager.class);
+                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent);
             }
             if(result1.equals("-1")){

@@ -21,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".FragmentAround"></activity>
+        <activity android:name=".RankActivity" />
+        <activity android:name=".ComunityActivity" />
+        <activity android:name=".ReserveActivity" />
+        <activity android:name=".ListActivity" />
         <activity android:name=".Register"></activity>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".RegisterActivity"></activity>
