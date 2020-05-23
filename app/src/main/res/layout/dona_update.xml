@@ -183,35 +183,103 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearEmail"
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/linearPhone">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="  카테고리"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/cafe24oneprettynight" />
+
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/linearPhone">
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            >
 
-            <TextView
-                android:id="@+id/textView14"
+            <RadioButton
+                android:id="@+id/radioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="  사장님 한마디"
-                android:textSize="17sp"
-                android:textStyle="bold"
+                android:text="한식"
                 app:fontFamily="@font/cafe24oneprettynight" />
 
-            <EditText
-                android:id="@+id/editText3"
+            <RadioButton
+                android:id="@+id/radioButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
-                android:layout_weight="1"
-                android:ems="17"
-                android:inputType="textPersonName" />
-        </LinearLayout>
+                android:text="중식"
+                app:fontFamily="@font/cafe24oneprettynight" />
 
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="양식"
+                app:fontFamily="@font/cafe24oneprettynight" />
 
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일식"
+                app:fontFamily="@font/cafe24oneprettynight" />
+
+            <RadioButton
+                android:id="@+id/radioButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="분식"
+                app:fontFamily="@font/cafe24oneprettynight" />
+
+            <RadioButton
+                android:id="@+id/radioButton8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="디저트"
+                app:fontFamily="@font/cafe24oneprettynight" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearComent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/linearCategory">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="  사장님 한마디"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/cafe24oneprettynight" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_weight="1"
+            android:ems="17"
+            android:inputType="textPersonName" />
     </LinearLayout>
 
     <Button
@@ -220,11 +288,11 @@
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:text="확인"
+        android:textStyle="bold"
+        app:fontFamily="@font/cafe24oneprettynight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearPhone"
-        app:fontFamily="@font/cafe24oneprettynight"
-        android:textStyle="bold"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearComent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
