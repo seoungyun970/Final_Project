@@ -6,22 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Display;
-import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -30,6 +20,7 @@ import java.net.URL;
 public class LoginActivity extends Activity implements View.OnClickListener {
     Button registerBtn, loginBtn;
     EditText loginId, loginPwd;
+    public static Context context_main; // context 변수 선언
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +31,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         loginId = findViewById(R.id.loginId);
         loginPwd = findViewById(R.id.loginPwd);
         registerBtn.setOnClickListener(this);
+        context_main = this;
     }
 
     @Override
@@ -58,7 +50,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 intent1.putExtra("_pw",_pw);
                 LoginActivity.RegisterUser task = new LoginActivity.RegisterUser();
                 task.execute(_id, _pw); //1번
-
                 break;
         }
         }
@@ -69,7 +60,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         protected void onPreExecute() {
             super.onPreExecute();
-            loading = ProgressDialog.show(LoginActivity.this, "Please Wait", null, true, true);
+            loading = ProgressDialog.show(LoginActivity.this, "로그인 중입니다.", null, true, true);
         }
 
         @Override
@@ -114,16 +105,18 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             if(result1.equals("0")){
                 Toast.makeText(getApplicationContext(),"비밀번호가 맞지 않습니다.",Toast.LENGTH_LONG).show();
             }
+            // 1 아동
             if(result1.equals("1")){
                 Intent intent1=new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent1);
             }
-
+            //2 후원자
             if(result1.equals("2")){
                 System.out.println(result1);
-                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                Intent intent=new Intent(LoginActivity.this, Manager_main.class);
                 startActivity(intent);
             }
+
             if(result1.equals("-1")){
                 Toast.makeText(getApplicationContext(),"등록되지 않은 회원입니다.",Toast.LENGTH_LONG).show();
             }

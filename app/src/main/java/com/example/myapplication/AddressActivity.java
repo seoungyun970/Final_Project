@@ -19,6 +19,8 @@ public class AddressActivity extends Activity {
     private WebView daum_webView;
     public static   TextView daum_result;
     private Handler handler;
+
+    Intent intent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,16 +74,25 @@ public class AddressActivity extends Activity {
                     daum_result.setText(String.format("(%s) %s %s", arg1, arg2, arg3));
 
                     // WebView를 초기화 하지않으면 재사용할 수 없음
-                    Intent intent=new Intent(AddressActivity.this,FoodActivity.class);
+                    intent=new Intent();
+//                    intent.putExtra("sendData",daum_result.getText().toString());
+
                     intent.putExtra("sendData",daum_result.getText().toString());
-                    startActivity(intent);
+                    setResult(RESULT_OK,intent);
+                    finish();
+
+
                     init_webView();
 
                 }
+
 
             });
 
         }
 
     }
+
+
+
 }

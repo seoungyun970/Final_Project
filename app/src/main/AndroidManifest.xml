@@ -34,5 +34,6 @@
         <activity android:name=".FoodActivity"></activity>
         <activity android:name=".main"></activity>
         <activity android:name=".manager"></activity>
+        <activity android:name=".Manager_main"></activity>
     </application>
 </manifest>

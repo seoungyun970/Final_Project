@@ -32,6 +32,7 @@
                 android:layout_width="wrap_content"
                 android:textSize="20sp"
                 android:text="선한 영향력"
+                android:fontFamily="@font/cafe24oneprettynight"
                 android:textStyle="bold"
                 android:textColor="@color/white" />
         </LinearLayout>
@@ -88,6 +89,9 @@
                     style="@style/df4_btn_danger"
                     android:layout_gravity="center_vertical"
                     android:text="로그인"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
                     android:onClick="onClick"/>
 
                 <ProgressBar
@@ -97,7 +101,8 @@
                     android:layout_height="wrap_content"
                     android:indeterminate="true"
                     android:visibility="gone"
-                    android:layout_centerInParent="true"/>
+                    android:layout_centerInParent="true"
+                    />
 
                 <Button
                     android:id="@+id/registerBtn"
@@ -106,6 +111,9 @@
                     style="@style/df4_btn_danger"
                     android:layout_gravity="center_vertical"
                     android:text="회원가입"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
                     android:onClick="onClick"/>
 
 

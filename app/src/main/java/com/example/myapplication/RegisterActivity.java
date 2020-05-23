@@ -155,3 +155,4 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         }
     }
 }
+
