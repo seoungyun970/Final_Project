@@ -58,14 +58,6 @@
                 android:layout_height="62dp"
                 android:layout_weight="1"
                 android:onClick="onClick"
-                android:src="@drawable/list" />
-
-            <ImageView
-                android:id="@+id/reserve"
-                android:layout_width="0dp"
-                android:layout_height="62dp"
-                android:layout_weight="1"
-                android:onClick="onClick"
                 android:src="@drawable/comunity" />
 
         </TableRow>
@@ -81,16 +73,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/cafe24oneprettynight"
                 android:gravity="center"
-                android:text="매장등록"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/cafe24oneprettynight"
-                android:gravity="center"
-                android:text="후원매장 관리"
+                android:text="채팅"
                 android:textStyle="bold" />
 
 
@@ -110,12 +93,6 @@
                 android:onClick="onClick"
                 android:src="@drawable/reserve" />
 
-            <ImageView
-                android:id="@+id/rank"
-                android:layout_width="0dp"
-                android:layout_height="62dp"
-                android:layout_weight="1"
-                android:src="@color/white" />
         </TableRow>
 
         <TableRow
@@ -133,14 +110,6 @@
                 android:text="예약 확인"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/cafe24oneprettynight"
-                android:gravity="center"
-                android:text=""
-                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
@@ -170,7 +139,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemBackground="@color/df_danger"
+        app:itemBackground="@color/colorPrimary"
         app:menu="@menu/manager_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
