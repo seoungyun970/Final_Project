@@ -9,6 +9,6 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/fragment3"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/fragment2" />
 </RelativeLayout>

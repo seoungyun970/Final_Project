@@ -14,7 +14,8 @@
         android:targetSandboxVersion="1"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DonaUpdate"></activity>
+        <activity android:name=".ManagerMyinfo"></activity>
+        <activity android:name=".DonaUpdate" />
         <activity android:name=".MyinfoUpdate" />
         <activity android:name=".SplashActivity">
             <intent-filter>
