@@ -14,9 +14,14 @@
         android:targetSandboxVersion="1"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ManagerMyinfo"></activity>
-        <activity android:name=".DonaUpdate" />
-        <activity android:name=".MyinfoUpdate" />
+        <activity android:name=".Child.ChildSearch"></activity>
+        <activity android:name=".Child.ChildMyinfoUpdate" />
+        <activity android:name=".Child.ChildMyinfo" />
+        <activity android:name=".Child.ChildChat" />
+        <activity android:name=".Manager.ManagerMore" />
+        <activity android:name=".Manager.ManagerMyinfo" />
+        <activity android:name=".Manager.ManagerDonaUpdate" />
+        <activity android:name=".Manager.ManagerMyinfoUpdate" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,12 +29,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".FragmentAround" />
+        <activity android:name=".Child.ChildMain" />
+        <activity android:name=".Child.ChildNavigationAround" />
         <activity android:name=".RankActivity" />
         <activity android:name=".ComunityActivity" />
         <activity android:name=".ReserveActivity" />
-        <activity android:name=".ListActivity" />
+        <activity android:name=".Child.ChildList" />
         <activity android:name=".Register" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
@@ -37,7 +42,7 @@
         <activity android:name=".FoodActivity" />
         <activity android:name=".main" />
         <activity android:name=".manager" />
-        <activity android:name=".Manager_main" />
+        <activity android:name=".Manager.ManagerMain" />
     </application>
 
 </manifest>

@@ -2,20 +2,17 @@ package com.example.myapplication;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.myapplication.Manager.ManagerMain;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.BufferedReader;
@@ -122,7 +119,7 @@ public class FoodActivity extends Activity implements View.OnClickListener {
             super.onPostExecute(result);
             loading.dismiss();
             System.out.println(result);
-            Intent intent = new Intent(FoodActivity.this, Manager_main.class);
+            Intent intent = new Intent(FoodActivity.this, ManagerMain.class);
 
             String _id  = loginStoreId.getText().toString();
 //            EditText _id = _a.setText(_a).getText().toString();

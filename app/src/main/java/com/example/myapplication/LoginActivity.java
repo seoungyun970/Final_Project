@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.myapplication.Child.ChildMain;
+import com.example.myapplication.Manager.ManagerMain;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -106,14 +109,14 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 Toast.makeText(getApplicationContext(),"비밀번호가 맞지 않습니다.",Toast.LENGTH_LONG).show();
             }
             // 1 아동
-            if(result1.equals("1")){
-                Intent intent1=new Intent(LoginActivity.this,MainActivity.class);
+            if(result1.equals("")){
+                Intent intent1=new Intent(LoginActivity.this, ChildMain.class);
                 startActivity(intent1);
             }
             //2 후원자
             if(result1.equals("2")){
                 System.out.println(result1);
-                Intent intent=new Intent(LoginActivity.this, Manager_main.class);
+                Intent intent=new Intent(LoginActivity.this, ManagerMain.class);
                 startActivity(intent);
             }
 
