@@ -14,11 +14,14 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.myapplication.Child.ChildMain;
+import com.example.myapplication.JSON.JSON;
 import com.example.myapplication.Manager.ManagerMain;
+import com.example.myapplication.VO.SunhansVO;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.List;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
     Button registerBtn, loginBtn;
@@ -70,7 +73,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         //2번
         protected String doInBackground(String... params) {
             try {
-                String URL = "http://3.12.173.221:8080/SunhanWeb/android/andlogin.jsp";
+                String URL = "http://3.12.173.221:8080/SunhanWeb/androidLogin.do";
 
                 String _id = (String) params[0];
                 String _pw = (String) params[1];
@@ -102,27 +105,46 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         protected void onPostExecute(String result)
         {
             super.onPostExecute(result);
+
             loading.dismiss();
-            String result1=result.replaceAll("\\s","");
-            System.out.println(result1);
-            if(result1.equals("0")){
-                Toast.makeText(getApplicationContext(),"비밀번호가 맞지 않습니다.",Toast.LENGTH_LONG).show();
-            }
-            // 1 아동
-            if(result1.equals("")){
-                Intent intent1=new Intent(LoginActivity.this, ChildMain.class);
-                startActivity(intent1);
-            }
-            //2 후원자
-            if(result1.equals("2")){
-                System.out.println(result1);
-                Intent intent=new Intent(LoginActivity.this, ManagerMain.class);
-                startActivity(intent);
+
+            JSON js=new JSON();
+            List List =js.loginuserjsonParsing(result);
+
+            String ad;//관리자 판단하는 스트링변수
+            String name=null;
+            
+            
+            try {
+                //json값을 받아와서 선한vo로 형변환해줌 로그인유저라 list엔하나뿐.
+                SunhansVO user =(SunhansVO) List.get(0);
+                ad=user.getAdmin();//vo에 ad민을 위에 string ad넣어줌
+                name=user.getName();
+            }catch (Exception e)
+            {
+                ad="-1";//리스트에 아무것도없다면 로그인유저가없어서 -1
             }
 
-            if(result1.equals("-1")){
+            System.out.println(ad+"jsonn에서 받아온 admin값");
+            // 0 아동
+            if(ad.equals("0")){
+                Intent intent1=new Intent(LoginActivity.this,ChildMain.class);
+                Toast.makeText(getApplicationContext(),"아동용입니다.",Toast.LENGTH_LONG).show();
+                startActivity(intent1);
+            }
+            //1 후원자
+            if(ad.equals("1")){
+                Intent intent=new Intent(LoginActivity.this, ManagerMain.class);
+                String userName=name.toString();
+                intent.putExtra("a",userName);
+                System.out.println(userName);
+                Toast.makeText(getApplicationContext(),"관리자용입니다.",Toast.LENGTH_LONG).show();
+                startActivity(intent);
+            }
+            if(ad.equals("-1")){
                 Toast.makeText(getApplicationContext(),"등록되지 않은 회원입니다.",Toast.LENGTH_LONG).show();
             }
+
         }
     }
 

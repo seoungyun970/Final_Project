@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.myapplication.LoginActivity;
 import com.example.myapplication.Pager.Fragment1;
 import com.example.myapplication.Pager.Fragment2;
 import com.example.myapplication.Pager.Fragment3;
@@ -24,6 +27,7 @@ import java.util.ArrayList;
 
 public class ManagerMain extends AppCompatActivity {
 
+    TextView mainname;
     Toolbar myToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,11 @@ public class ManagerMain extends AppCompatActivity {
         // 툴바 타이틀 삭제
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
+        //메인 이름
+        //팀뷰어 어캐나가지?ㅋㅋ
+        Intent intent=new Intent(ManagerMain.this,LoginActivity.class);
+        String a=intent.getExtras().getString("a");
+        mainname=findViewById(R.id.mainName); mainname.setText(a);
 
 //        //뷰페이저
         ViewPager pager = findViewById(R.id.pager);
