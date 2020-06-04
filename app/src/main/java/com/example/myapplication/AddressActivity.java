@@ -19,7 +19,7 @@ public class AddressActivity extends Activity {
     private WebView daum_webView;
     public static   TextView daum_result;
     private Handler handler;
-
+    private String s;
     Intent intent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
