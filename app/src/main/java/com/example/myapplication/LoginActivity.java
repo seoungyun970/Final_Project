@@ -27,7 +27,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     Button registerBtn, loginBtn;
     EditText loginId, loginPwd;
     public static Context context_main; // context 변수 선언
-
+    String name;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,9 +112,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             List List =js.loginuserjsonParsing(result);
 
             String ad;//관리자 판단하는 스트링변수
-            String name=null;
-            
-            
+
+
+
             try {
                 //json값을 받아와서 선한vo로 형변환해줌 로그인유저라 list엔하나뿐.
                 SunhansVO user =(SunhansVO) List.get(0);
@@ -134,7 +134,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             }
             //1 후원자
             if(ad.equals("1")){
-                Intent intent=new Intent(LoginActivity.this, ManagerMain.class);
+                Intent intent=new Intent(getApplicationContext(), ManagerMain.class);
                 String userName=name.toString();
                 intent.putExtra("a",userName);
                 System.out.println(userName);

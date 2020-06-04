@@ -33,7 +33,7 @@ public class ManagerMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_main_activity);
-
+        mainname=findViewById(R.id.mainName);
 
         // 추가된 소스, Toolbar를 생성
         myToolbar = (Toolbar) findViewById(R.id.toolbar2);
@@ -42,10 +42,9 @@ public class ManagerMain extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         //메인 이름
-        //팀뷰어 어캐나가지?ㅋㅋ
-        Intent intent=new Intent(ManagerMain.this,LoginActivity.class);
-        String a=intent.getExtras().getString("a");
-        mainname=findViewById(R.id.mainName); mainname.setText(a);
+        Intent intent=getIntent();
+        String username=intent.getExtras().getString("a");
+        mainname.setText(username+"님");
 
 //        //뷰페이저
         ViewPager pager = findViewById(R.id.pager);
