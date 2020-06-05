@@ -27,7 +27,7 @@ public class ChildSearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.child_search_activity);
 
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        mToolbar = (Toolbar)findViewById(R.id.searchtoolbar);
         setSupportActionBar(mToolbar);
         // 툴바 뒤로가기 버튼생성
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

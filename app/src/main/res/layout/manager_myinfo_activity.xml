@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/mmyinfotoolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
@@ -35,7 +35,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/mmyinfotoolbar">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/textName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -84,7 +84,6 @@
         android:id="@+id/dona_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
         android:onClick="onClick"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -106,7 +105,6 @@
         android:id="@+id/reserve_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
         android:onClick="onClick"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/dona_list">
@@ -128,7 +126,6 @@
         android:id="@+id/comunity_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
         android:onClick="onClick"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/reserve_list">

@@ -20,7 +20,7 @@ public class ChildList extends AppCompatActivity {
         setContentView(R.layout.child_list_activity);
 
         //툴바
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.listtoolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

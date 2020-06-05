@@ -17,7 +17,7 @@ public class ChildChat extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.child_chat_activitiy);
 
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        mToolbar = (Toolbar)findViewById(R.id.chattoolbar);
         setSupportActionBar(mToolbar);
         // 툴바 뒤로가기 버튼생성
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -1,5 +1,6 @@
 package com.example.myapplication.Child;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -8,14 +9,15 @@ import android.view.MenuItem;
 
 import com.example.myapplication.R;
 
-public class ChildMyinfoUpdate extends AppCompatActivity {
+public class ChildIntroduceProject extends AppCompatActivity {
     Toolbar mToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.child_myinfoupdate_activity);
+        setContentView(R.layout.child_introduce_project_activity);
 
-        mToolbar = (Toolbar)findViewById(R.id.myinfoupdatetoolbar);
+        mToolbar = (Toolbar)findViewById(R.id.projecttoolbar);
         setSupportActionBar(mToolbar);
         // 툴바 뒤로가기 버튼생성
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -23,6 +25,7 @@ public class ChildMyinfoUpdate extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
@@ -32,4 +35,5 @@ public class ChildMyinfoUpdate extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

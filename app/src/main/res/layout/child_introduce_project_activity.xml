@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Child.ChildIntroduceProject">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/projecttoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cafe24oneprettynight"
+            android:text="프로젝트 소개"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/project1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/projecttoolbar"
+        tools:layout_editor_absoluteX="7dp">
+
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="세상은 다양하다. 차이와 다름이 존재한다."
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/cafe24oneprettynight" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="이 다양성은 서로 연결되며 우리의 삶에 영향을 미친다. 상호관계 속에서 어느 한쪽의 붕괴와 소멸은 인류의 생존에 위협을 가한다. 우리자신도 예외일 수는 없다. 서로 도우며 공존해야 하는 이유이다. 이는 인류는 물론 동식물을 비롯한 자연환경가지 아우르는 포괄적 명제에 해당한다."
+            android:textSize="16sp"
+            app:fontFamily="@font/cafe24oneprettynight" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="한 개인의 힘은 미약하다. 하지만 그 작은 힘이 뭉치면 강해진다. 즉 내가 아닌 우리가 되었을 때 그 영향력은 증폭된다. '선한 영향력'이란 혼자가 아닌 우리가 되어 서로를 격려해 주는 작은 개인의 힘을 말한다. 또한 인류와 지구 생명체의 공존을 위한 지속적인 실천의 힘을 의미한다."
+            android:textSize="16sp"
+            app:fontFamily="@font/cafe24oneprettynight" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="'선한 영향력'은 결식아동들을 위해 나눔(후원) 활동을 합니다. 나눔 지역의 의, 식, 주, 시선 개선을 목표로 하고 있습니다. 아동들의 건강을, 환경 개선을 통해 삶의 질 향상을 통해 청소년 계몽을 이루고자 합니다. 꿈과 비전을 심어줄 계획입니다."
+            android:textSize="16sp"
+            app:fontFamily="@font/cafe24oneprettynight" />
+    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/project"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/toolbar"-->
+
+<!--        android:layout_margin="10dp"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/project1"-->
+<!--        tools:layout_editor_absoluteX="7dp">-->
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="나눔과 배려를 실천해야 할 때다."-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="온정의 손길을 필요로 하는 곳은 지구촌 곳곳에 무수히 많다. 이제 민주와 평화 인권의 상징인 광주, 이곳에서 소시민들이 뭉쳐 선한 영향력을 발휘하고자 한다. 국내와 나눔지역 청소년들에게 지구와 인류의 미래를 이끌어갈 리더쉽을 길러주고, 포용력을 키워주자. 소외된 지구촌 약자들과 의료·환경·교육의 혜택을 나누기 위해 '선한 영향력'은 아래와 같은 원칙을 공유한다."-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView32"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="1.요식업계의 사장님들과 후원하고 싶은 가게들이 자유자재로 결식아동들에게 후원한다. "-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView33"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text='2.나눔지역의 보건·교육·환경 개선에 노력하고 결식아동들의 의,식,주 중 "식" 을 책임진다.'-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView34"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="3.활동에서 후원자 교육을 실시하고, 결식아동의 끼니를 굶기지 않게 힘쓴다. "-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView35"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="4.활동에 국내후원자들을 참여시켜 아동결식을 위한 개선과 마음가짐을 갖도록 지도한다. "-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView36"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="5.다른 생각, 다른 관습을 포용한다."-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView37"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="6.정치인 및 정당을 옹호하거나 지지하지 않는다."-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView38"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="7.건강한 종교와 협력한다. 다만 특정 종교의 이익을 추구하지 않는다."-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView39"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="8.궁극적으로 후원지역에 봉사·환경·인식 개선방향을 세운다."-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView40"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="9.외국인 근로자,다문화 가정 등 국내 소외계층을 위한 나눔 활동 병행해 나간다."-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView41"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="10.우리의 성공을 통해 많은 사람들에게 본보기가 되는 사례를 만든다."-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView42"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="위 원칙에 따라 '선한 영향력'은 인류의 공존과 협력을 위한 새 지평을 만들어 나가고자 한다. 우리가 가진 작은 것부터 나누고, 우리의 이웃들과 교감을 시작하자."-->
+<!--            app:fontFamily="@font/cafe24oneprettynight" />-->
+
+
+<!--    </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

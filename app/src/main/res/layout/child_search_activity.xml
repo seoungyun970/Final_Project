@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/searchtoolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
@@ -36,7 +36,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/searchtoolbar">
 
         <EditText
             android:id="@+id/edittext"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_search_black_24dp"
             android:fontFamily="@font/cafe24oneprettynight"
-            android:hint="키워드를 입력하세요."/>
+            android:hint="키워드를 입력하세요." />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"

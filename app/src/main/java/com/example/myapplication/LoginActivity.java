@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -24,7 +25,8 @@ import java.net.URL;
 import java.util.List;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
-    Button registerBtn, loginBtn;
+    TextView registerBtn;
+    Button loginBtn;
     EditText loginId, loginPwd;
     public static Context context_main; // context 변수 선언
     String name;

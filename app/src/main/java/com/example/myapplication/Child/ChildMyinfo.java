@@ -23,7 +23,7 @@ public class ChildMyinfo extends AppCompatActivity {
         setContentView(R.layout.child_myinfo_activity);
 
 
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        mToolbar = (Toolbar)findViewById(R.id.myinfotoolbar);
         setSupportActionBar(mToolbar);
         // 툴바 뒤로가기 버튼생성
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

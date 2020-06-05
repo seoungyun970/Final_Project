@@ -15,7 +15,7 @@ public class ManagerMore extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_more_activity);
 
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        mToolbar = (Toolbar)findViewById(R.id.mmoretoolbar);
         setSupportActionBar(mToolbar);
         // 툴바 뒤로가기 버튼생성
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

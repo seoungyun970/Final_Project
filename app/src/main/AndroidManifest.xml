@@ -14,7 +14,8 @@
         android:targetSandboxVersion="1"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Child.ChildSearch"></activity>
+        <activity android:name=".Child.ChildIntroduceProject"></activity>
+        <activity android:name=".Child.ChildSearch" />
         <activity android:name=".Child.ChildMyinfoUpdate" />
         <activity android:name=".Child.ChildMyinfo" />
         <activity android:name=".Child.ChildChat" />

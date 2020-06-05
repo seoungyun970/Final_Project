@@ -14,6 +14,7 @@ import com.example.myapplication.R;
 
 public class ManagerMyinfo extends AppCompatActivity {
     TextView infoupdatetxt;
+    TextView textName;
     Button donabtn;
     Toolbar mToolbar;
     @Override
@@ -21,7 +22,9 @@ public class ManagerMyinfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_myinfo_activity);
 
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        textName = (TextView)findViewById(R.id.textName);
+
+        mToolbar = (Toolbar)findViewById(R.id.mmyinfotoolbar);
         setSupportActionBar(mToolbar);
         // 툴바 뒤로가기 버튼생성
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

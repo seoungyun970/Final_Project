@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/moretoolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
@@ -33,11 +33,11 @@
         android:layout_marginTop="10dp"
         android:onClick="onClick"
         android:orientation="horizontal"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/moretoolbar"
         >
 
         <Button
-            android:id="@+id/projectbtn"
+            android:id="@+id/cprojectbtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -59,7 +59,7 @@
         android:layout_below="@id/project">
 
         <Button
-            android:id="@+id/noticebtn"
+            android:id="@+id/cnoticebtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -78,20 +78,7 @@
         android:layout_marginTop="10dp"
         android:onClick="onClick"
         android:orientation="horizontal"
-        android:layout_below="@id/notice">
-
-        <Button
-            android:id="@+id/eventbtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            android:fontFamily="@font/cafe24oneprettynight"
-            android:gravity="left|center_vertical"
-            android:onClick="onClick"
-            android:text="      이벤트"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:layout_below="@id/notice"/>
 
     <LinearLayout
         android:id="@+id/setting"
@@ -103,7 +90,7 @@
         android:layout_below="@id/event">
 
         <Button
-            android:id="@+id/settingbtn"
+            android:id="@+id/csettingbtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -122,20 +109,7 @@
         android:layout_marginTop="10dp"
         android:onClick="onClick"
         android:orientation="horizontal"
-        android:layout_below="@id/setting">
-
-        <Button
-            android:id="@+id/askbtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            android:fontFamily="@font/cafe24oneprettynight"
-            android:gravity="left|center_vertical"
-            android:onClick="onClick"
-            android:text="      고객문의"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:layout_below="@id/setting"/>
 
     <LinearLayout
         android:id="@+id/signout"
@@ -147,7 +121,7 @@
         android:layout_below="@id/ask">
 
         <Button
-            android:id="@+id/signoutbtn"
+            android:id="@+id/csignoutbtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -163,8 +137,8 @@
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/signout"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/signout"
+        android:layout_marginTop="333dp"
         android:onClick="onClick"
         android:orientation="vertical">
 
@@ -200,8 +174,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:layout_weight="0"
-            android:onClick="OnClick"
-            android:background="@drawable/kakao" />
+            android:background="@drawable/kakao"
+            android:onClick="OnClick" />
     </LinearLayout>
 
 
