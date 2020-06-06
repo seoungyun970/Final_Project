@@ -17,7 +17,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.myapplication.LoginActivity;
 import com.example.myapplication.Pager.Fragment1;
 import com.example.myapplication.Pager.Fragment2;
 import com.example.myapplication.Pager.Fragment3;
@@ -44,7 +43,7 @@ public class ManagerMain extends AppCompatActivity {
         //메인 이름
         Intent intent=getIntent();
         String username=intent.getExtras().getString("a");
-        mainname.setText(username+"님");
+        mainname.setText(username);
 
 ////        //뷰페이저
 //        ViewPager pager = findViewById(R.id.pager);
