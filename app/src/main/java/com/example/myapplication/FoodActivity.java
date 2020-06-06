@@ -43,7 +43,6 @@ public class FoodActivity extends Activity implements View.OnClickListener {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_register);
-//        String receiveStr = intent.getExtras().getString("sendData");
         main_address=findViewById(R.id.main_address);
         storeId=findViewById(R.id.storeId);
         detail_address=findViewById(R.id.detail_address);
@@ -206,7 +205,6 @@ public class FoodActivity extends Activity implements View.OnClickListener {
             Intent intent = new Intent(FoodActivity.this, ManagerMain.class);
             startActivity(intent);
         }
-
     }
 
 
