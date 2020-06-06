@@ -71,13 +71,14 @@ public class AddressActivity extends Activity {
 
                 public void run() {
 
-                    daum_result.setText(String.format("(%s) %s %s", arg1, arg2, arg3));
+                    daum_result.setText(String.format("%s %s %s", "", arg2, arg3));
 
                     // WebView를 초기화 하지않으면 재사용할 수 없음
                     intent=new Intent();
 //                    intent.putExtra("sendData",daum_result.getText().toString());
 
                     intent.putExtra("sendData",daum_result.getText().toString());
+                    System.out.println("주소@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+daum_result.getText().toString());
                     setResult(RESULT_OK,intent);
                     finish();
 

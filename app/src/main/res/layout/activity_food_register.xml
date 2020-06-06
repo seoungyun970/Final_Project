@@ -111,7 +111,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
                     android:text="매장소개"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -119,7 +118,7 @@
                     android:fontFamily="@font/cafe24oneprettynight"
                     />
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/storeIntro"
+                    android:id="@+id/topMessage"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
@@ -158,45 +157,8 @@
                     android:layout_marginTop="20dp"
                     android:orientation="horizontal"
                     >
-                    <Button
-                        android:id="@+id/galleryBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
-                        android:text="갤러리"
-                        android:textStyle="bold"
-                        android:onClick="onClick"
-                        app:fontFamily="@font/cafe24oneprettynight"
-                        />
                 </LinearLayout>
 
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/linearNick"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/linearPic">
-
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="  안내 및 혜택"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/cafe24oneprettynight" />
-
-                <EditText
-                    android:id="@+id/storeGuide"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="7dp"
-                    android:layout_weight="1"
-                    android:ems="17"
-                    android:inputType="textPersonName" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/linearPhone"
@@ -238,28 +200,7 @@
                             android:text="영업시간"
                             android:textSize="17sp"
                             android:textStyle="bold"
-                            app:fontFamily="@font/cafe24oneprettynight" />
-
-                        <TextView
-                            android:id="@+id/textView10"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="25dp"
-                            android:gravity="center_horizontal"
-                            android:text="휴무"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            app:fontFamily="@font/cafe24oneprettynight" />
-
-                        <TextView
-                            android:id="@+id/textView17"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:text="전화번호"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            app:fontFamily="@font/cafe24oneprettynight" />
+                            app:fontFamily="@font/cafe24oneprettynight " />
                     </LinearLayout>
 
                     <LinearLayout
@@ -271,24 +212,6 @@
 
                         <EditText
                             android:id="@+id/storeTime"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ems="15"
-                            android:inputType="textPersonName"
-                            android:textSize="18sp"
-                            app:fontFamily="@font/cafe24oneprettynight" />
-
-                        <EditText
-                            android:id="@+id/storeHoliday"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ems="15"
-                            android:inputType="textPersonName"
-                            android:textSize="18sp"
-                            app:fontFamily="@font/cafe24oneprettynight" />
-
-                        <EditText
-                            android:id="@+id/storePhone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="15"
@@ -394,7 +317,7 @@
                     app:fontFamily="@font/cafe24oneprettynight" />
 
                 <EditText
-                    android:id="@+id/bossTalk"
+                    android:id="@+id/comments"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="7dp"
