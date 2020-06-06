@@ -37,7 +37,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
             android:text="가게 명"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -122,7 +121,7 @@
                     android:fontFamily="@font/cafe24oneprettynight"
                     />
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/aaaa"
+                    android:id="@+id/storeIntro"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
@@ -168,15 +167,7 @@
                         android:background="#FFFFFF"
                         android:text="갤러리"
                         android:textStyle="bold"
-                        app:fontFamily="@font/cafe24oneprettynight"
-                        />
-                    <Button
-                        android:id="@+id/cameraBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
-                        android:text="카메라"
-                        android:textStyle="bold"
+                        android:onClick="onClick"
                         app:fontFamily="@font/cafe24oneprettynight"
                         />
                 </LinearLayout>
@@ -201,7 +192,7 @@
                     app:fontFamily="@font/cafe24oneprettynight" />
 
                 <EditText
-                    android:id="@+id/editText1"
+                    android:id="@+id/storeGuide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="7dp"
@@ -281,7 +272,7 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/editText6"
+                            android:id="@+id/storeTime"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="15"
@@ -290,7 +281,7 @@
                             app:fontFamily="@font/cafe24oneprettynight" />
 
                         <EditText
-                            android:id="@+id/editText7"
+                            android:id="@+id/storeHoliday"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="15"
@@ -299,7 +290,7 @@
                             app:fontFamily="@font/cafe24oneprettynight" />
 
                         <EditText
-                            android:id="@+id/editText8"
+                            android:id="@+id/storePhone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="15"
@@ -336,45 +327,51 @@
                     >
 
                     <RadioButton
-                        android:id="@+id/radioButton"
+                        android:id="@+id/foodButton1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="한식"
+                        android:onClick="onClick"
                         app:fontFamily="@font/cafe24oneprettynight" />
 
                     <RadioButton
-                        android:id="@+id/radioButton2"
+                        android:id="@+id/foodButton2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="중식"
+                        android:onClick="onClick"
                         app:fontFamily="@font/cafe24oneprettynight" />
 
                     <RadioButton
-                        android:id="@+id/radioButton3"
+                        android:id="@+id/foodButton3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="양식"
+                        android:onClick="onClick"
                         app:fontFamily="@font/cafe24oneprettynight" />
 
                     <RadioButton
-                        android:id="@+id/radioButton5"
+                        android:id="@+id/foodButton4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="일식"
+                        android:onClick="onClick"
                         app:fontFamily="@font/cafe24oneprettynight" />
 
                     <RadioButton
-                        android:id="@+id/radioButton6"
+                        android:id="@+id/foodButton5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="분식"
+                        android:onClick="onClick"
                         app:fontFamily="@font/cafe24oneprettynight" />
 
                     <RadioButton
-                        android:id="@+id/radioButton8"
+                        android:id="@+id/foodButton6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="디저트"
+                        android:onClick="onClick"
                         app:fontFamily="@font/cafe24oneprettynight" />
 
                 </RadioGroup>
@@ -399,7 +396,7 @@
                     app:fontFamily="@font/cafe24oneprettynight" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/bossTalk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="7dp"
