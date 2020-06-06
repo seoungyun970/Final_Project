@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -28,7 +37,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
             android:text="가게 명"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -97,24 +105,319 @@
 
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
 
+                    android:text="매장소개"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/storeIntro"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text=""
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    >
+                </com.google.android.material.textfield.TextInputEditText>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearPic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/linearId">
 
+                <TextView
+                    android:id="@+id/pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="사진"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cafe24oneprettynight" />
 
-    </LinearLayout>
-    <Button
-        android:id="@+id/storeBtn"
-        android:onClick="onClick"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="384dp"
-        android:gravity="center"
-        android:text="업체등록"
-        android:fontFamily="@font/cafe24oneprettynight"
-        style="@style/df4_btn_danger"
-        android:textStyle="bold"
-        android:textSize="20dp"></Button>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:id="@+id/storePic"
+                    ></ImageView>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    >
+                    <Button
+                        android:id="@+id/galleryBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:text="갤러리"
+                        android:textStyle="bold"
+                        android:onClick="onClick"
+                        app:fontFamily="@font/cafe24oneprettynight"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearNick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/linearPic">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="  안내 및 혜택"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cafe24oneprettynight" />
+
+                <EditText
+                    android:id="@+id/storeGuide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_weight="1"
+                    android:ems="17"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/linearNick">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="  영업정보"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cafe24oneprettynight" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="영업시간"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/cafe24oneprettynight" />
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25dp"
+                            android:gravity="center_horizontal"
+                            android:text="휴무"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/cafe24oneprettynight" />
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="전화번호"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/cafe24oneprettynight" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/storeTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:inputType="textPersonName"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/cafe24oneprettynight" />
+
+                        <EditText
+                            android:id="@+id/storeHoliday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:inputType="textPersonName"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/cafe24oneprettynight" />
+
+                        <EditText
+                            android:id="@+id/storePhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:inputType="textPersonName"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/cafe24oneprettynight" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/linearPhone">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="  카테고리"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cafe24oneprettynight" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/foodButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="한식"
+                        android:onClick="onClick"
+                        app:fontFamily="@font/cafe24oneprettynight" />
+
+                    <RadioButton
+                        android:id="@+id/foodButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="중식"
+                        android:onClick="onClick"
+                        app:fontFamily="@font/cafe24oneprettynight" />
+
+                    <RadioButton
+                        android:id="@+id/foodButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="양식"
+                        android:onClick="onClick"
+                        app:fontFamily="@font/cafe24oneprettynight" />
+
+                    <RadioButton
+                        android:id="@+id/foodButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="일식"
+                        android:onClick="onClick"
+                        app:fontFamily="@font/cafe24oneprettynight" />
+
+                    <RadioButton
+                        android:id="@+id/foodButton5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="분식"
+                        android:onClick="onClick"
+                        app:fontFamily="@font/cafe24oneprettynight" />
+
+                    <RadioButton
+                        android:id="@+id/foodButton6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="디저트"
+                        android:onClick="onClick"
+                        app:fontFamily="@font/cafe24oneprettynight" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearComent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/linearCategory">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="  사장님 한마디"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cafe24oneprettynight" />
+
+                <EditText
+                    android:id="@+id/bossTalk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_weight="1"
+                    android:ems="17"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/storeBtn"
+                android:onClick="onClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="확인"
+                android:textStyle="bold"
+                app:fontFamily="@font/cafe24oneprettynight"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearComent" />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

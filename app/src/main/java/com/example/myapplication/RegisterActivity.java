@@ -85,7 +85,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                         RegisterUser task = new RegisterUser();
                         task.execute(register_id.getText().toString(), register_pw.getText().toString(),
                                 register_name.getText().toString(),register_phone.getText().toString(),check_result.toString()); //1번
-
                         break;
                 }
 
@@ -133,7 +132,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                     result += temp;
                 }
                 in.close();
-
                 return result;
             }
             catch (Exception e)
@@ -151,7 +149,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
             System.out.println(result);
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
-
         }
     }
 }

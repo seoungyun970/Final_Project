@@ -3,12 +3,19 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -16,15 +23,22 @@ import com.example.myapplication.Manager.ManagerMain;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
 public class FoodActivity extends Activity implements View.OnClickListener {
     TextView main_address;
-    TextInputEditText storeId,detail_address;
+    TextInputEditText storeId,detail_address,storeIntro;
     Button storeBtn;
     private int REQUEST_TEST = 1;
-    EditText loginStoreId;
+    EditText loginStoreId,storeGuide,storeTime,storeHoliday,storePhone,bossTalk;
+    ImageView storePic;
+    private static final int REQUEST_CODE = 0;
+    RadioButton foodButton1,foodButton2,foodButton3,foodButton4,foodButton5,foodButton6;
+    String foodCheck;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +49,20 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         detail_address=findViewById(R.id.detail_address);
         storeBtn=findViewById(R.id.storeBtn);
         loginStoreId=((LoginActivity)LoginActivity.context_main).loginId;
+        storePic=findViewById(R.id.storePic);
+        storeIntro=findViewById(R.id.storeIntro);
+        storeGuide=findViewById(R.id.storeGuide);
+        storeTime=findViewById(R.id.storeTime);
+        storeHoliday=findViewById(R.id.storeHoliday);
+        storePhone=findViewById(R.id.storePhone);
+        bossTalk=findViewById(R.id.bossTalk);
+        foodButton1=findViewById(R.id.foodButton1);
+        foodButton2=findViewById(R.id.foodButton2);
+        foodButton3=findViewById(R.id.foodButton3);
+        foodButton4=findViewById(R.id.foodButton4);
+        foodButton5=findViewById(R.id.foodButton5);
+        foodButton6=findViewById(R.id.foodButton6);
+
 //        if(receiveStr!=null){
 //            main_address.setText(receiveStr);
 //        }
@@ -50,6 +78,30 @@ public class FoodActivity extends Activity implements View.OnClickListener {
             main_address.setText(data1);
 
         }
+
+
+        if(requestCode == REQUEST_CODE)
+        {
+            if(resultCode == RESULT_OK)
+            {
+                try{
+                    InputStream in = getContentResolver().openInputStream(data.getData());
+
+                    Bitmap img = BitmapFactory.decodeStream(in);
+                    in.close();
+
+                    storePic.setImageBitmap(img);
+                }catch(Exception e)
+                {
+
+                }
+            }
+            else if(resultCode == RESULT_CANCELED)
+            {
+                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
+            }
+        }
+
     }
     @Override
     public void onClick(View v) {
@@ -66,13 +118,43 @@ public class FoodActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.storeBtn:
                 FoodRegisterUser task = new FoodRegisterUser();
-                task.execute(loginStoreId.getText().toString(),storeId.getText().toString(), main_address.getText().toString(),
-                        detail_address.getText().toString()); //1번
+                task.execute(loginStoreId.getText().toString(),storeId.getText().toString(),
+                        main_address.getText().toString(), detail_address.getText().toString(),
+                        storeIntro.getText().toString(), storePic.getDrawable().toString(),
+                        storeGuide.getText().toString(), storeTime.getText().toString(),
+                        storeHoliday.getText().toString(), storePhone.getText().toString(),
+                        foodCheck.toString(),bossTalk.getText().toString()); //1번
                 break;
-
+            case R.id.galleryBtn:
+                Intent intent1=new Intent();
+                intent1.setType("image/*");
+                intent1.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent1, REQUEST_CODE);
+                break;
+        }
+        ////////////////////////////////////////// 카테고리 그룹체크
+        if(foodButton1.isChecked()){
+            foodCheck="1";
+        }
+        if(foodButton2.isChecked()){
+            foodCheck="2";
+        }
+        if(foodButton3.isChecked()){
+            foodCheck="3";
+        }
+        if(foodButton4.isChecked()){
+            foodCheck="4";
+        }
+        if(foodButton5.isChecked()){
+            foodCheck="5";
+        }
+        if(foodButton6.isChecked()){
+            foodCheck="6";
         }
 
     }
+
+
     private class FoodRegisterUser extends AsyncTask<String, String, String>
     {
 
@@ -120,10 +202,6 @@ public class FoodActivity extends Activity implements View.OnClickListener {
             loading.dismiss();
             System.out.println(result);
             Intent intent = new Intent(FoodActivity.this, ManagerMain.class);
-
-            String _id  = loginStoreId.getText().toString();
-//            EditText _id = _a.setText(_a).getText().toString();
-            intent.putExtra("_id",_id);
             startActivity(intent);
         }
 
