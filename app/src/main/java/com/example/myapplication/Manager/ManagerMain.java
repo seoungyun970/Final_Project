@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.myapplication.FoodActivity;
 import com.example.myapplication.Pager.Fragment1;
 import com.example.myapplication.Pager.Fragment2;
 import com.example.myapplication.Pager.Fragment3;
@@ -24,8 +26,8 @@ import com.example.myapplication.R;
 
 import java.util.ArrayList;
 
-public class ManagerMain extends AppCompatActivity {
-
+public class ManagerMain extends AppCompatActivity implements View.OnClickListener {
+    ImageView storeRegister;
     TextView mainname;
     Toolbar myToolbar;
     @Override
@@ -33,7 +35,7 @@ public class ManagerMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_main_activity);
         mainname=findViewById(R.id.mainName);
-
+        storeRegister=findViewById(R.id.storeRegister);
         // 추가된 소스, Toolbar를 생성
         myToolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
@@ -45,22 +47,7 @@ public class ManagerMain extends AppCompatActivity {
         String username=intent.getExtras().getString("a");
         mainname.setText(username);
 
-////        //뷰페이저
-//        ViewPager pager = findViewById(R.id.pager);
-//        pager.setOffscreenPageLimit(3);
-//
-//        MoviePagerAdapter adapter = new MoviePagerAdapter(getSupportFragmentManager());
-//
-//        Fragment1 fragment1 = new Fragment1();
-//        adapter.addItem(fragment1);
-//
-//        Fragment2 fragment2 = new Fragment2();
-//        adapter.addItem(fragment2);
-//
-//        Fragment3 fragment3 = new Fragment3();
-//        adapter.addItem(fragment3);
-//
-//        pager.setAdapter(adapter);
+        storeRegister.setOnClickListener(this);
 
     }
     //추가된 소스, ToolBar에 menu.xml을 인플레이트함
@@ -109,6 +96,10 @@ public class ManagerMain extends AppCompatActivity {
 //                Intent intent2=new Intent(ManagerMain.this, ComunityActivity.class);
 //                startActivity(intent2);
 //                break;
+            case R.id.storeRegister:
+                Intent intent4=new Intent(ManagerMain.this, FoodActivity.class);
+                startActivity(intent4);
+                break;
             case R.id.msetting:
                 Intent intent3=new Intent(ManagerMain.this, ManagerMore.class);
                 startActivity(intent3);
