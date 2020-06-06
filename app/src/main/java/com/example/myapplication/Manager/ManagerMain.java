@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.myapplication.Child.ChildMain;
 import com.example.myapplication.FoodActivity;
 import com.example.myapplication.Pager.Fragment1;
 import com.example.myapplication.Pager.Fragment2;
@@ -48,6 +49,23 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
         mainname.setText(username);
 
         storeRegister.setOnClickListener(this);
+
+        //뷰 페이저
+        ViewPager pager = findViewById(R.id.pager);
+        pager.setOffscreenPageLimit(3);
+
+        ManagerMain.MoviePagerAdapter adapter = new ManagerMain.MoviePagerAdapter(getSupportFragmentManager());
+
+        Fragment1 fragment1 = new Fragment1();
+        adapter.addItem(fragment1);
+
+        Fragment2 fragment2 = new Fragment2();
+        adapter.addItem(fragment2);
+
+        Fragment3 fragment3 = new Fragment3();
+        adapter.addItem(fragment3);
+
+        pager.setAdapter(adapter);
 
     }
     //추가된 소스, ToolBar에 menu.xml을 인플레이트함
