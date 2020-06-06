@@ -29,10 +29,10 @@ import java.net.URL;
 
 public class FoodActivity extends Activity implements View.OnClickListener {
     TextView main_address;
-    TextInputEditText storeId,detail_address,storeIntro;
+    TextInputEditText storeId,detail_address,topMessage;
     Button storeBtn;
     private int REQUEST_TEST = 1;
-    EditText loginStoreId,storeGuide,storeTime,storeHoliday,storePhone,bossTalk;
+    EditText loginStoreId,storeTime,comments;
     ImageView storePic;
     private static final int REQUEST_CODE = 0;
     RadioButton foodButton1,foodButton2,foodButton3,foodButton4,foodButton5,foodButton6;
@@ -50,10 +50,9 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         storeBtn=findViewById(R.id.storeBtn);
         loginStoreId=((LoginActivity)LoginActivity.context_main).loginId;
         storePic=findViewById(R.id.storePic);
-        storeIntro=findViewById(R.id.storeIntro);
+        topMessage=findViewById(R.id.topMessage);
         storeTime=findViewById(R.id.storeTime);
-        storePhone=findViewById(R.id.storePhone);
-        bossTalk=findViewById(R.id.bossTalk);
+        comments=findViewById(R.id.comments);
         foodButton1=findViewById(R.id.foodButton1);
         foodButton2=findViewById(R.id.foodButton2);
         foodButton3=findViewById(R.id.foodButton3);
@@ -118,12 +117,11 @@ public class FoodActivity extends Activity implements View.OnClickListener {
                 FoodRegisterUser task = new FoodRegisterUser();
                 task.execute(loginStoreId.getText().toString(),storeId.getText().toString(),
                         main_address.getText().toString(), detail_address.getText().toString(),
-                        storeIntro.getText().toString(), storePic.getDrawable().toString(),
-                        storeGuide.getText().toString(), storeTime.getText().toString(),
-                        storeHoliday.getText().toString(), storePhone.getText().toString(),
-                        foodCheck.toString(),bossTalk.getText().toString()); //1번
+                        topMessage.getText().toString(),storePic.getDrawable().toString(),
+                        storeTime.getText().toString(), foodCheck.toString(),
+                        comments.getText().toString()); //1번
                 break;
-            case R.id.storePic:
+            case R.id.galleryBtn:
                 Intent intent1=new Intent();
                 intent1.setType("image/*");
                 intent1.setAction(Intent.ACTION_GET_CONTENT);
@@ -172,13 +170,16 @@ public class FoodActivity extends Activity implements View.OnClickListener {
                 String _storeName = (String) params[1];
                 String _sendData = (String) params[2];
                 String _detail=(String) params[3];
-                String _intro=(String) params[4];
-                String _pic=(String) params[5];
-                String _guide=(String) params[6];
-                System.out.println(_storeName);
-                System.out.println(_sendData);
-                System.out.println(_detail);
-                String url_address = URL + "?id=" + _id + "&storeName=" + _storeName + "&sendData=" + _sendData + "&detail=" + _detail;
+                String _pic=(String) params[4];
+                String _topMessage=(String) params[5];
+                String _storeTime=(String) params[6];
+                String _foodCheck=params[7];
+                String _comments=params[8];
+                String url_address = URL + "?id=" + _id + "&storeName=" + _storeName +
+                        "&sendData=" + _sendData + "&detail=" + _detail +
+                        "&pic=" + _pic + "&topMessage=" + _topMessage +
+                        "&storeTime=" + _storeTime +
+                        "&foodCheck=" + _foodCheck + "&comments=" + _comments;
                 System.out.println(url_address);
                 register_url = new URL(url_address);
                 BufferedReader in = new BufferedReader(new InputStreamReader(register_url.openStream()));
