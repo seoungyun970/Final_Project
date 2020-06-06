@@ -26,6 +26,19 @@
             android:textColor="#000000"
             android:textSize="20sp" />
     </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/scrollView"
+        android:layout_marginLeft="7dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="7dp">
+
 
     <LinearLayout
         android:id="@+id/linearId"
@@ -56,12 +69,64 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearNick"
+        android:id="@+id/linearPic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/linearId">
+
+        <TextView
+            android:id="@+id/pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="사진"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/cafe24oneprettynight" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:id="@+id/storePic"
+            ></ImageView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/galleryBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="갤러리"
+                android:textStyle="bold"
+                app:fontFamily="@font/cafe24oneprettynight"
+                 />
+            <Button
+                android:id="@+id/cameraBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="카메라"
+                android:textStyle="bold"
+                app:fontFamily="@font/cafe24oneprettynight"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearNick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/linearPic">
 
         <TextView
             android:id="@+id/textView12"
@@ -294,5 +359,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearComent" />
-
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

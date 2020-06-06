@@ -46,7 +46,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="오늘도 소중한 방문 감사드립니다."
+            android:text="님 오늘도 소중한 방문 감사드립니다."
             android:textSize="22sp"
             android:textStyle="bold"
             app:fontFamily="@font/cafe24oneprettynight" />
@@ -90,10 +90,11 @@
                 app:fontFamily="@font/cafe24oneprettynight" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/storeRegister"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="11dp"
+                android:onClick="onClick"
                 app:srcCompat="@drawable/list" />
 
             <TextView

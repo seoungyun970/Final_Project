@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,53 +18,63 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.myapplication.FoodActivity;
 import com.example.myapplication.LoginActivity;
 import com.example.myapplication.Pager.Fragment1;
 import com.example.myapplication.Pager.Fragment2;
 import com.example.myapplication.Pager.Fragment3;
 import com.example.myapplication.R;
+import com.example.myapplication.StoreRegister;
 
 import java.util.ArrayList;
 
-public class ManagerMain extends AppCompatActivity {
+public class ManagerMain extends AppCompatActivity implements View.OnClickListener {
 
-    TextView mainname;
+    TextView textView18;
     Toolbar myToolbar;
+    ImageView storeRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_main_activity);
-        mainname=findViewById(R.id.mainName);
-
+        textView18=findViewById(R.id.textView18);
+        storeRegister=findViewById(R.id.storeRegister);
         // 추가된 소스, Toolbar를 생성
         myToolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
         // 툴바 타이틀 삭제
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         //메인 이름
         Intent intent=getIntent();
         String username=intent.getExtras().getString("a");
-        mainname.setText(username+"님");
-
-////        //뷰페이저
-//        ViewPager pager = findViewById(R.id.pager);
-//        pager.setOffscreenPageLimit(3);
-//
-//        MoviePagerAdapter adapter = new MoviePagerAdapter(getSupportFragmentManager());
-//
-//        Fragment1 fragment1 = new Fragment1();
-//        adapter.addItem(fragment1);
-//
-//        Fragment2 fragment2 = new Fragment2();
-//        adapter.addItem(fragment2);
-//
-//        Fragment3 fragment3 = new Fragment3();
-//        adapter.addItem(fragment3);
-//
-//        pager.setAdapter(adapter);
-
+        textView18.setText(username+"님 오늘도 소중한 방문 감사드립니다.");
+        storeRegister.setOnClickListener(this);
     }
+    //onClick event
+    public void onClick(View view) {
+        switch (view.getId()){
+//            case R.id.list:
+//                Intent intent=new Intent(ManagerMain.this, FoodActivity.class);
+//                startActivity(intent);
+//                break;
+//            case R.id.reserve:
+//                Intent intent1=new Intent(ManagerMain.this, ReserveActivity.class);
+//                startActivity(intent1);
+//                break;
+//            case R.id.comunity:
+//                Intent intent2=new Intent(ManagerMain.this, ComunityActivity.class);
+//                startActivity(intent2);
+//                break;
+            case R.id.msetting:
+                Intent intent3=new Intent(ManagerMain.this, ManagerMore.class);
+                startActivity(intent3);
+                break;
+            case  R.id.storeRegister:
+                Intent intent4=new Intent(ManagerMain.this, FoodActivity.class);
+                startActivity(intent4);
+        }
+    }
+
     //추가된 소스, ToolBar에 menu.xml을 인플레이트함
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,27 +106,7 @@ public class ManagerMain extends AppCompatActivity {
         }
     }
 
-    //onClick event
-    public void onClick(View view) {
-        switch (view.getId()){
-//            case R.id.list:
-//                Intent intent=new Intent(ManagerMain.this, FoodActivity.class);
-//                startActivity(intent);
-//                break;
-//            case R.id.reserve:
-//                Intent intent1=new Intent(ManagerMain.this, ReserveActivity.class);
-//                startActivity(intent1);
-//                break;
-//            case R.id.comunity:
-//                Intent intent2=new Intent(ManagerMain.this, ComunityActivity.class);
-//                startActivity(intent2);
-//                break;
-            case R.id.msetting:
-                Intent intent3=new Intent(ManagerMain.this, ManagerMore.class);
-                startActivity(intent3);
-                break;
-        }
-    }
+
 
 
     //뷰페이저 어댑터

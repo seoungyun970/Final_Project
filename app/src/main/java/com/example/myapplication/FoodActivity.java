@@ -120,10 +120,6 @@ public class FoodActivity extends Activity implements View.OnClickListener {
             loading.dismiss();
             System.out.println(result);
             Intent intent = new Intent(FoodActivity.this, ManagerMain.class);
-
-            String _id  = loginStoreId.getText().toString();
-//            EditText _id = _a.setText(_a).getText().toString();
-            intent.putExtra("_id",_id);
             startActivity(intent);
         }
 
