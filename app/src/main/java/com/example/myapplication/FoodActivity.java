@@ -72,10 +72,7 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         if(resultCode==RESULT_OK){
             String data1=data.getStringExtra("sendData");
             main_address.setText(data1);
-
         }
-
-
         if(requestCode == REQUEST_CODE)
         {
             if(resultCode == RESULT_OK)
@@ -120,7 +117,7 @@ public class FoodActivity extends Activity implements View.OnClickListener {
                         storeTime.getText().toString(), foodCheck.toString(),
                         comments.getText().toString()); //1번
                 break;
-            case R.id.galleryBtn:
+            case R.id.storePic:
                 Intent intent1=new Intent();
                 intent1.setType("image/*");
                 intent1.setAction(Intent.ACTION_GET_CONTENT);
