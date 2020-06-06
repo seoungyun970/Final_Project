@@ -51,9 +51,7 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         loginStoreId=((LoginActivity)LoginActivity.context_main).loginId;
         storePic=findViewById(R.id.storePic);
         storeIntro=findViewById(R.id.storeIntro);
-        storeGuide=findViewById(R.id.storeGuide);
         storeTime=findViewById(R.id.storeTime);
-        storeHoliday=findViewById(R.id.storeHoliday);
         storePhone=findViewById(R.id.storePhone);
         bossTalk=findViewById(R.id.bossTalk);
         foodButton1=findViewById(R.id.foodButton1);
@@ -125,7 +123,7 @@ public class FoodActivity extends Activity implements View.OnClickListener {
                         storeHoliday.getText().toString(), storePhone.getText().toString(),
                         foodCheck.toString(),bossTalk.getText().toString()); //1번
                 break;
-            case R.id.galleryBtn:
+            case R.id.storePic:
                 Intent intent1=new Intent();
                 intent1.setType("image/*");
                 intent1.setAction(Intent.ACTION_GET_CONTENT);

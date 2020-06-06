@@ -44,12 +44,13 @@
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0"
                 android:fontFamily="@font/cafe24oneprettynight"
                 android:gravity="center"
-                android:text="아이디" />
+                android:text="아이디"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/register_id"
@@ -72,12 +73,13 @@
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0"
                 android:fontFamily="@font/cafe24oneprettynight"
                 android:gravity="center"
-                android:text="비밀번호" />
+                android:text="비밀번호"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/register_pw"
@@ -98,11 +100,13 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/cafe24oneprettynight"
                 android:gravity="center"
-                android:text="이름  " />
+                android:text="이름  "
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/register_name"
@@ -124,11 +128,13 @@
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/cafe24oneprettynight"
                 android:gravity="center"
-                android:text="전화번호" />
+                android:text="전화번호"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/register_phone"
@@ -149,11 +155,13 @@
 
             <TextView
                 android:id="@+id/textView8"
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/cafe24oneprettynight"
                 android:gravity="center"
-                android:text="용도" />
+                android:text="용도"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <RadioGroup
                 android:id="@+id/rgroup_job"
