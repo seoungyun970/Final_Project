@@ -174,6 +174,11 @@ public class FoodActivity extends Activity implements View.OnClickListener {
                 String _storeName = (String) params[1];
                 String _sendData = (String) params[2];
                 String _detail=(String) params[3];
+                String _intro=(String) params[4];
+                String _pic=(String) params[5];
+                String _guide=(String) params[6];
+                String _intro=(String) params[4];
+                String _intro=(String) params[4];
                 System.out.println(_storeName);
                 System.out.println(_sendData);
                 System.out.println(_detail);
