@@ -214,9 +214,13 @@ public class ManagerMyinfoUpdate extends Activity {
             loading.dismiss();
             if(result=="1")
             {
+                Toast.makeText(getApplicationContext(),"업로드 실패",Toast.LENGTH_LONG).show();
+
                 System.out.println("Zz");
             }
             else {
+                Toast.makeText(getApplicationContext(),"업로드 성공",Toast.LENGTH_LONG).show();
+
                 System.out.println("성공");
             }
         }
