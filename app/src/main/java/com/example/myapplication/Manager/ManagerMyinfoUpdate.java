@@ -96,7 +96,7 @@ public class ManagerMyinfoUpdate extends Activity {
     public String getImagePathToUri(Uri data) {
         //사용자가 선택한 이미지의 정보를 받아옴
 
-        System.out.println(data+"dd");
+        System.out.println(data+"ddd");
 
         String[] proj = {MediaStore.Images.Media.DATA};
         Cursor cursor = getContentResolver().query(data, proj, null, null, null);
