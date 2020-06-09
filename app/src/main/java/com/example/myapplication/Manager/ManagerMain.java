@@ -20,6 +20,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.myapplication.Child.ChildMain;
 import com.example.myapplication.FoodActivity;
+import com.example.myapplication.LoginActivity;
 import com.example.myapplication.Pager.Fragment1;
 import com.example.myapplication.Pager.Fragment2;
 import com.example.myapplication.Pager.Fragment3;

@@ -53,7 +53,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 String _id  = loginId.getText().toString();
                 String _pw = loginPwd.getText().toString();
 
-                Intent intent1 = new Intent( LoginActivity.this, main.class );
+                Intent intent1 = new Intent(LoginActivity.this, main.class);
                 intent1.putExtra("_id",_id);
                 intent1.putExtra("_pw",_pw);
                 LoginActivity.RegisterUser task = new LoginActivity.RegisterUser();
@@ -107,7 +107,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         protected void onPostExecute(String result)
         {
             super.onPostExecute(result);
-
+            System.out.println(result+"값!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             loading.dismiss();
 
             JSON js=new JSON();

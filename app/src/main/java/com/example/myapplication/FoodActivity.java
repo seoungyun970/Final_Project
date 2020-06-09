@@ -3,17 +3,22 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,12 +37,13 @@ public class FoodActivity extends Activity implements View.OnClickListener {
     TextInputEditText storeId,detail_address,topMessage;
     Button storeBtn;
     private int REQUEST_TEST = 1;
-    EditText loginStoreId,storeTime,comments;
+    EditText loginStoreId,openTime,finishTime,comments,storePhone,information;
     ImageView storePic;
     private static final int REQUEST_CODE = 0;
     RadioButton foodButton1,foodButton2,foodButton3,foodButton4,foodButton5,foodButton6;
     String foodCheck;
-
+    Spinner spinner;
+    private String img_path=new String();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,18 +56,18 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         loginStoreId=((LoginActivity)LoginActivity.context_main).loginId;
         storePic=findViewById(R.id.storePic);
         topMessage=findViewById(R.id.topMessage);
-        storeTime=findViewById(R.id.storeTime);
+        openTime=findViewById(R.id.openTime);
+        finishTime=findViewById(R.id.finishTime);
         comments=findViewById(R.id.comments);
+        storePhone=findViewById(R.id.storePhone);
+        information=findViewById(R.id.information);
         foodButton1=findViewById(R.id.foodButton1);
         foodButton2=findViewById(R.id.foodButton2);
         foodButton3=findViewById(R.id.foodButton3);
         foodButton4=findViewById(R.id.foodButton4);
         foodButton5=findViewById(R.id.foodButton5);
         foodButton6=findViewById(R.id.foodButton6);
-
-//        if(receiveStr!=null){
-//            main_address.setText(receiveStr);
-//        }
+        spinner=findViewById(R.id.spinner);
 
 
     }
@@ -78,11 +84,10 @@ public class FoodActivity extends Activity implements View.OnClickListener {
             if(resultCode == RESULT_OK)
             {
                 try{
+//                    img_path = getImagePathToUri(data.getData());
                     InputStream in = getContentResolver().openInputStream(data.getData());
-
                     Bitmap img = BitmapFactory.decodeStream(in);
                     in.close();
-
                     storePic.setImageBitmap(img);
                 }catch(Exception e)
                 {
@@ -102,20 +107,22 @@ public class FoodActivity extends Activity implements View.OnClickListener {
             case R.id.main_address:
                 Intent intent=new Intent(getApplicationContext(),AddressActivity.class);
                 String sendData  = main_address.getText().toString();
-//                String _name=storeId.getText().toString();  //가게명
-//                String _detail=detail_address.getText().toString();
                 intent.putExtra("sendData",sendData);
 //                intent.putExtra("_name",_name);
 //                intent.putExtra("_detail",_detail);
                 startActivityForResult(intent, REQUEST_TEST);
                 break;
             case R.id.storeBtn:
+                // 마감시간 12
                 FoodRegisterUser task = new FoodRegisterUser();
                 task.execute(loginStoreId.getText().toString(),storeId.getText().toString(),
                         main_address.getText().toString(), detail_address.getText().toString(),
-                        topMessage.getText().toString(),storePic.getDrawable().toString(),
-                        storeTime.getText().toString(), foodCheck.toString(),
-                        comments.getText().toString()); //1번
+                        topMessage.getText().toString(), openTime.getText().toString(),
+                        storePhone.getText().toString(), foodCheck.toString(),
+                        comments.getText().toString(),"1000",
+                        finishTime.getText().toString(),"a1",
+                        information.getText().toString()
+                ); //1번
                 break;
             case R.id.storePic:
                 Intent intent1=new Intent();
@@ -161,21 +168,32 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         @Override
         protected String doInBackground(String... params) {
             try{
-                String URL = "http://3.12.173.221:8080/SunhanWeb/android/addstore.jsp";
+                String URL =   "http://3.12.173.221:8080/SunhanWeb/androidaddStoreServlet.do";
                 String _id = (String) params[0];
                 String _storeName = (String) params[1];
                 String _sendData = (String) params[2];
                 String _detail=(String) params[3];
-                String _pic=(String) params[4];
-                String _topMessage=(String) params[5];
-                String _storeTime=(String) params[6];
+                String _topMessage=(String) params[4];
+                String _openTime=params[5];
+                String _storephone=(String) params[6];
                 String _foodCheck=params[7];
                 String _comments=params[8];
+                String _price=params[9];
+                String _closeTime=(String) params[10];
+                // 마감시간 12
+                String _area=params[11];
+                String _information=params[12];
+                // 지역 13
+
+                //                String _pic=(String) params[4];
                 String url_address = URL + "?id=" + _id + "&storeName=" + _storeName +
                         "&sendData=" + _sendData + "&detail=" + _detail +
-                        "&pic=" + _pic + "&topMessage=" + _topMessage +
-                        "&storeTime=" + _storeTime +
-                        "&foodCheck=" + _foodCheck + "&comments=" + _comments;
+                        //"&pic=" + _pic
+                        "&topMessage=" + _topMessage + "&opentime=" + _openTime +
+                        "&storePhone="+_storephone + "&foodCheck=" + _foodCheck +
+                        "&comments=" + _comments + "&price=" + _price +
+                        "&closetime=" + _closeTime + "&area=" + _area +
+                        "&information=" + _information ;
                 System.out.println(url_address);
                 register_url = new URL(url_address);
                 BufferedReader in = new BufferedReader(new InputStreamReader(register_url.openStream()));
@@ -188,7 +206,7 @@ public class FoodActivity extends Activity implements View.OnClickListener {
                 in.close();
                 return result;
             }catch (Exception e){
-                System.out.println("가게 등록 실패");
+                System.out.println("가게 등록 실패"+e.getMessage());
                 return new String("Exception : " + e.getMessage());
             }
 
@@ -198,12 +216,31 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         {
             super.onPostExecute(result);
             loading.dismiss();
-            System.out.println(result);
+            System.out.println("결과값이다!!!!!!!!!"+result);
             Intent intent = new Intent(FoodActivity.this, ManagerMain.class);
             startActivity(intent);
         }
     }
 
+
+//    public String getImagePathToUri(Uri data) {
+//        //사용자가 선택한 이미지의 정보를 받아옴
+//        String[] proj = {MediaStore.Images.Media.DATA};
+//        Cursor cursor = managedQuery(data, proj, null, null, null);
+//        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//        cursor.moveToFirst();
+//
+//        //이미지의 경로 값
+//        String imgPath = cursor.getString(column_index);
+//        Log.d("test", imgPath);
+//
+//        //이미지의 이름 값
+//        String imgName = imgPath.substring(imgPath.lastIndexOf("/") + 1);
+//        Toast.makeText(FoodActivity.this, "이미지 이름 : " + imgName, Toast.LENGTH_SHORT).show();
+//        this.imageName = imgName;
+//
+//        return imgPath;
+//    }
 
 
 }
