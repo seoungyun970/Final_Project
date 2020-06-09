@@ -30,6 +30,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     EditText loginId, loginPwd;
     public static Context context_main; // context 변수 선언
     String name;
+    public SunhansVO user;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +53,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             case R.id.loginBtn:
                 String _id  = loginId.getText().toString();
                 String _pw = loginPwd.getText().toString();
-
                 Intent intent1 = new Intent(LoginActivity.this, main.class);
                 intent1.putExtra("_id",_id);
                 intent1.putExtra("_pw",_pw);
@@ -115,17 +115,19 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
             String ad;//관리자 판단하는 스트링변수
 
-
+            SunhansVO usertemp = null;
 
             try {
                 //json값을 받아와서 선한vo로 형변환해줌 로그인유저라 list엔하나뿐.
-                SunhansVO user =(SunhansVO) List.get(0);
-                ad=user.getAdmin();//vo에 ad민을 위에 string ad넣어줌
-                name=user.getName();
+                usertemp =(SunhansVO) List.get(0);
+                ad=usertemp.getAdmin();//vo에 ad민을 위에 string ad넣어줌
+                name=usertemp.getName();
             }catch (Exception e)
             {
                 ad="-1";//리스트에 아무것도없다면 로그인유저가없어서 -1
             }
+            user=usertemp;
+
 
             System.out.println(ad+"jsonn에서 받아온 admin값");
             // 0 아동
@@ -137,9 +139,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             //1 후원자
             if(ad.equals("1")){
                 Intent intent=new Intent(getApplicationContext(), ManagerMain.class);
-                String userName=name.toString();
-                intent.putExtra("a",userName);
-                System.out.println(userName);
+//                String userName=name.toString();
+//                intent.putExtra("a",userName);
+//                System.out.println(userName);
                 Toast.makeText(getApplicationContext(),"관리자용입니다.",Toast.LENGTH_LONG).show();
                 startActivity(intent);
             }

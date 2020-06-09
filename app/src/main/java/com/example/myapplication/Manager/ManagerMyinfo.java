@@ -3,6 +3,7 @@ package com.example.myapplication.Manager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,20 +11,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.myapplication.LoginActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.VO.SunhansVO;
 
 public class ManagerMyinfo extends AppCompatActivity {
     TextView infoupdatetxt;
     TextView textName;
     Button donabtn;
     Toolbar mToolbar;
+    public static Context context_main;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_myinfo_activity);
 
         textName = (TextView)findViewById(R.id.textName);
-
+        String a1=((ManagerMain)ManagerMain.context_main).a;
+        textName.setText(a1);
         mToolbar = (Toolbar)findViewById(R.id.mmyinfotoolbar);
         setSupportActionBar(mToolbar);
         // 툴바 뒤로가기 버튼생성

@@ -1,5 +1,6 @@
 package com.example.myapplication.Manager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,6 +26,7 @@ import com.example.myapplication.Pager.Fragment1;
 import com.example.myapplication.Pager.Fragment2;
 import com.example.myapplication.Pager.Fragment3;
 import com.example.myapplication.R;
+import com.example.myapplication.VO.SunhansVO;
 
 import java.util.ArrayList;
 
@@ -32,6 +34,8 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
     ImageView storeRegister;
     TextView mainname;
     Toolbar myToolbar;
+    String a;
+    public static Context context_main;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +47,15 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
         setSupportActionBar(myToolbar);
         // 툴바 타이틀 삭제
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
+        context_main = this;
         //메인 이름
         Intent intent=getIntent();
-        String username=intent.getExtras().getString("a");
-        mainname.setText(username);
-
+//        String username=intent.getExtras().getString("a");
+//        mainname.setText(username);
+        SunhansVO user2=((LoginActivity)LoginActivity.context_main).user;
+        a=user2.getName();
+        mainname.setText(a);
         storeRegister.setOnClickListener(this);
-
         //뷰 페이저
         ViewPager pager = findViewById(R.id.pager);
         pager.setOffscreenPageLimit(3);
