@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -18,10 +19,13 @@ import com.example.myapplication.Child.ChildMain;
 import com.example.myapplication.JSON.JSON;
 import com.example.myapplication.Manager.ManagerMain;
 import com.example.myapplication.VO.SunhansVO;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
@@ -41,6 +45,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         loginPwd = findViewById(R.id.loginPwd);
         registerBtn.setOnClickListener(this);
         context_main = this;
+        tedPermission();
     }
 
     @Override
@@ -150,6 +155,29 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             }
 
         }
+    }
+    private void tedPermission() {
+
+        PermissionListener permissionListener = new PermissionListener() {
+            @Override
+            public void onPermissionGranted() {
+                // 권한 요청 성공
+
+            }
+
+            @Override
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                // 권한 요청 실패
+            }
+        };
+
+        TedPermission.with(this)
+                .setPermissionListener(permissionListener)
+                .setRationaleMessage(getResources().getString(R.string.permission_2))
+                .setDeniedMessage(getResources().getString(R.string.permission_1))
+                .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+                .check();
+
     }
 
 }

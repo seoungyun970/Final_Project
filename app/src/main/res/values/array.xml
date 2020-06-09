@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="서울">
+    <string-array name="spinnerArea">
         <item>강남/역삼/삼성/논현</item>
         <item>서초/신사/방배</item>
         <item>천호/길동/둔촌</item>
