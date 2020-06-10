@@ -69,7 +69,7 @@ public class StoreRegisterAdapter extends RecyclerView.Adapter<StoreRegisterAdap
 
         holder.tv_item_movie_genre.setText(storeData.getFoodCheck());
         holder.tv_item_movie_title.setText(storeData.getStoreName());
-        holder.tv_item_movie_content.setText(storeData.getArea());
+        holder.tv_item_movie_content.setText(storeData.getStorephone());
 
 
 

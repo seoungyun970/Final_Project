@@ -150,7 +150,14 @@ public class ManagerMyinfoUpdate extends Activity {
             try {
                 System.out.println(img_path);
                 FileInputStream mFileInputStream = new FileInputStream(img_path);
-                URL connectUrl = new URL("http://3.12.173.221:8080/SunhanWeb/android/andImageUpload.jsp");
+                URL connectUrl = new URL("http://3.12.173.221:8080/SunhanWeb/andImageUpload.do");
+                BufferedReader in = new BufferedReader(new InputStreamReader(register_url.openStream()));
+                String result = "";
+                String temp = "";
+                //readLine()시 리턴값을 String으로 고정되기에 String이 아닌 다른타입으로 입력을 받을려면 형변환을 꼭 해주어야한다는 점
+                while ((temp = in.readLine()) != null) {
+                    result += temp;
+                }
                 //URL connectUrl = new URL("http://localhost:8181/SunhanWeb/android/andImageUpload.jsp");
                 // HttpURLConnection 통신
                 HttpURLConnection conn = (HttpURLConnection) connectUrl.openConnection();

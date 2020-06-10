@@ -61,7 +61,7 @@ public class FoodActivity extends Activity implements View.OnClickListener {
     String storeName=null;
 
     String storeimapath="http://3.12.173.221:8080/SunhanWeb/store/default.png";
-    String storeimapathTwo="http://3.12.173.221:8080/SunhanWeb/profile/";
+    String storeimapathTwo="http://3.12.173.221:8080/SunhanWeb/Store/";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
@@ -259,7 +259,7 @@ public class FoodActivity extends Activity implements View.OnClickListener {
             try {
                 System.out.println(img_path);
                 FileInputStream mFileInputStream = new FileInputStream(img_path);
-                URL connectUrl = new URL("http://3.12.173.221:8080/SunhanWeb/android/andImageUpload.jsp");
+                URL connectUrl = new URL("http://3.12.173.221:8080/SunhanWeb/andStoreImageUpload.do");
                 //URL connectUrl = new URL("http://localhost:8181/SunhanWeb/android/andImageUpload.jsp");
                 // HttpURLConnection 통신
                 HttpURLConnection conn = (HttpURLConnection) connectUrl.openConnection();
