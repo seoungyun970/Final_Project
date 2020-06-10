@@ -16,6 +16,15 @@ public class StoreVO implements Serializable {
     private String closeTime;
     private String area;
     private String information;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getId() {
         return id;
@@ -137,6 +146,7 @@ public class StoreVO implements Serializable {
                 ", closeTime='" + closeTime + '\'' +
                 ", area='" + area + '\'' +
                 ", information='" + information + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 }

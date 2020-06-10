@@ -85,25 +85,12 @@ public class ManagerMyinfoUpdate extends Activity {
                 } catch (Exception e) {
 
                 }
-                img_path = getRealPathFromURI(data.getData()); //이미지의 URI를 얻어 경로값으로 반환.
+                img_path = getImagePathToUri(data.getData()); //이미지의 URI를 얻어 경로값으로 반환.
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
             }
         }
 
-    }
-    private String getRealPathFromURI(Uri contentURI) {
-        String result;
-        Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
-        if (cursor == null) { // Source is Dropbox or other similar local file path
-            result = contentURI.getPath();
-        } else {
-            cursor.moveToFirst();
-            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-            result = cursor.getString(idx);
-            cursor.close();
-        }
-        return result;
     }
     public String getImagePathToUri(Uri data) {
         //사용자가 선택한 이미지의 정보를 받아옴

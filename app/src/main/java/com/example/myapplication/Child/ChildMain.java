@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
@@ -33,6 +34,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.Store.StoreAdapter;
 import com.example.myapplication.Store.SampleData;
 import com.example.myapplication.Store.StoreRegisterAdapter;
+import com.example.myapplication.StoreDetail;
 import com.example.myapplication.VO.StoreVO;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -91,7 +93,7 @@ public class ChildMain extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        layoutManager = new LinearLayoutManager(this);
 
 
         recyclerView.setLayoutManager(layoutManager);
@@ -222,27 +224,42 @@ public class ChildMain extends AppCompatActivity {
                         // Display the first 500 characters of the response string.
                         Log.d("StoreData",response);
                         //response를 StoreData Class에 분류
-                        //try catch 구문 사용하는 이유는 response가 json이 아닌데 사용할려고 하다보니 생기는 문제
+                        //try catch 구문 사용하는 이유는 response가 json이 아닌데 사용할려고 하다보니 생기는 문제!!!!!!!!!!!!!
                         try {
                             JSONObject jsonObject=new JSONObject(response);
 
-                            JSONArray jsonArrayArticles=jsonObject.getJSONArray("");
+                            JSONArray jsonArrayArticles=jsonObject.getJSONArray("storelist");
                             List<StoreVO> storeVOS=new ArrayList<>();
+
                             for(int i=0, j=jsonArrayArticles.length(); i<j; i++){
                                 JSONObject object=jsonArrayArticles.getJSONObject(i);
 
                                 Log.d("StoreData",object.toString());
 
                                 StoreVO storeVO=new StoreVO();
-//                                storeVO.setFoodCheck(object.getString("title"));
-//                                storeVO.setStoreName(object.getString("urlToImage"));
-//                                storeVO.setArea(object.getString("description"));
+                                storeVO.setFoodCheck(object.getString("food"));
+                                storeVO.setStoreName(object.getString("shopname"));
+                                storeVO.setArea(object.getString("area"));
+                                storeVO.setImage(object.getString("fileRealName"));
                                 storeVOS.add(storeVO);
                             }
 
 
                             // specify an adapter (see also next example)
-                            mAdapter = new StoreRegisterAdapter(storeVOS,com.example.myapplication.Child.ChildMain.this);
+                            mAdapter = new StoreRegisterAdapter(storeVOS,ChildMain.this, new View.OnClickListener(){
+                                @Override
+                                public void onClick(View view) {
+                                    Object obj= view.getTag();
+                                    System.out.println(obj+"번째 화면 클릭!!!!!!!!!!");
+                                    if(obj!=null){
+                                        int position=(int) obj;
+                                        ((StoreRegisterAdapter) mAdapter).getStoreVO(position).getOpenTime();
+                                        Intent intent=new Intent(ChildMain.this, StoreDetail.class);
+                                        intent.putExtra("news", ((StoreRegisterAdapter)mAdapter).getStoreVO(position));
+                                        startActivity(intent);
+                                    }
+                                }
+                            });
                             recyclerView.setAdapter(mAdapter);
 
                         } catch (JSONException e) {

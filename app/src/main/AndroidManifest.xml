@@ -49,7 +49,7 @@
         <activity android:name=".manager" />
         <activity android:name=".Manager.ManagerMain" />
         <activity android:name=".StoreRegister"></activity>
-
+        <activity android:name=".StoreDetail"></activity>
     </application>
 
 </manifest>
