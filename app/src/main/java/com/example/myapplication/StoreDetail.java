@@ -4,20 +4,23 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.myapplication.VO.StoreVO;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 
-public class StoreDetail extends Activity {
+public class StoreDetail extends AppCompatActivity {
     StoreVO store;
     private TextView textCloseTime,textOpenTime,textFood,textShopName,textArea,textPhone,textComments,textTopmessage,textAddr;
     private SimpleDraweeView imageFileRealName;
-
+    Toolbar mToolbar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,25 @@ public class StoreDetail extends Activity {
         setComp();
         getNewsDetail();
         setNews();
+
+        mToolbar = (Toolbar)findViewById(R.id.storedetailtool);
+        setSupportActionBar(mToolbar);
+        // 툴바 뒤로가기 버튼생성
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // 툴바 타이틀 삭제
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     //기본 컴포넌트 셋팅
