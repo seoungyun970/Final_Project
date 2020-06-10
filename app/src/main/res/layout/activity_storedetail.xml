@@ -3,13 +3,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
-    <TextView
-        android:id="@+id/TextView_title"
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/imageFileRealName"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="240dp" />
     <TextView
-        android:id="@+id/TextView_content"
+        android:id="@+id/textCloseTime"
+        android:text="a"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textOpenTime"
+        android:text="a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textFood"
+        android:text="a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textShopName"
+        android:text="a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textArea"
+        android:text="a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textPhone"
+        android:text="a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textComments"
+        android:text="a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textTopmessage"></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textAddr"></TextView>
+
+
 </LinearLayout>
