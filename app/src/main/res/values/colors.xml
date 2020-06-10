@@ -9,6 +9,7 @@
     <color name="colorGray">#777777</color>
     <color name="colorBlue">#00AFF0</color>
     <color name="colorDarkBlue">#3a5994</color>
+    <color name="bottomclor">#B4B4DC</color>
 
     <color name="df_red">#dc3545</color>
     <color name="df_danger">#1A8635</color>
