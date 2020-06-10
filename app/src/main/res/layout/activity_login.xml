@@ -76,9 +76,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="ID"
-            android:inputType="textPersonName"
-            android:textStyle="bold"
-            android:fontFamily="@font/cafe24oneprettynight" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/loginPwd"
@@ -89,9 +87,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="PASSWORD"
-            android:inputType="textPassword"
-            android:textStyle="bold"
-            app:fontFamily="@font/cafe24oneprettynight" />
+            android:inputType="textPassword" />
     </LinearLayout>
 
     <LinearLayout

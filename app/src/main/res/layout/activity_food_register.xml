@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login4"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -18,7 +17,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:background="@drawable/grad_color">
 
                 <TextView
                     android:id="@+id/textView2"
@@ -28,7 +28,7 @@
                     android:fontFamily="@font/cafe24oneprettynight"
                     android:gravity="center"
                     android:text="매장 등록"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textSize="30sp" />
 
             </LinearLayout>
@@ -446,7 +446,7 @@
                 android:fontFamily="@font/cafe24oneprettynight"
                 android:onClick="onClick"
                 android:text="확인"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

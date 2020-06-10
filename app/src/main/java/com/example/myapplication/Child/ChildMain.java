@@ -108,21 +108,21 @@ public class ChildMain extends AppCompatActivity {
 
 
         //뷰 페이저
-        ViewPager pager = findViewById(R.id.pager1);
-        pager.setOffscreenPageLimit(3);
-
-        ChildMain.MoviePagerAdapter adapter = new ChildMain.MoviePagerAdapter(getSupportFragmentManager());
-
-        Fragment1 fragment1 = new Fragment1();
-        adapter.addItem(fragment1);
-
-        Fragment2 fragment2 = new Fragment2();
-        adapter.addItem(fragment2);
-
-        Fragment3 fragment3 = new Fragment3();
-        adapter.addItem(fragment3);
-
-        pager.setAdapter(adapter);
+//        ViewPager pager = findViewById(R.id.pager1);
+//        pager.setOffscreenPageLimit(3);
+//
+//        ChildMain.MoviePagerAdapter adapter = new ChildMain.MoviePagerAdapter(getSupportFragmentManager());
+//
+//        Fragment1 fragment1 = new Fragment1();
+//        adapter.addItem(fragment1);
+//
+//        Fragment2 fragment2 = new Fragment2();
+//        adapter.addItem(fragment2);
+//
+//        Fragment3 fragment3 = new Fragment3();
+//        adapter.addItem(fragment3);
+//
+//        pager.setAdapter(adapter);
     }
 
     //추가된 소스, ToolBar에 menu.xml을 인플레이트함
@@ -143,13 +143,6 @@ public class ChildMain extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "내정보", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, ChildMyinfo.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_down, R.anim.slide_up);
-                return true;
-
-            case R.id.action_child_chat:
-                Toast.makeText(getApplicationContext(), "채팅", Toast.LENGTH_LONG).show();
-                Intent intent1 = new Intent(this, ChildChat.class);
-                startActivity(intent1);
                 overridePendingTransition(R.anim.slide_down, R.anim.slide_up);
                 return true;
 
