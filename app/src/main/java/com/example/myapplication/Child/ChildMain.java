@@ -94,10 +94,7 @@ public class ChildMain extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-
-
         recyclerView.setLayoutManager(layoutManager);
-
         queue= Volley.newRequestQueue(this);
         getData();
 
@@ -220,20 +217,28 @@ public class ChildMain extends AppCompatActivity {
                         //try catch 구문 사용하는 이유는 response가 json이 아닌데 사용할려고 하다보니 생기는 문제!!!!!!!!!!!!!
                         try {
                             JSONObject jsonObject=new JSONObject(response);
-
                             JSONArray jsonArrayArticles=jsonObject.getJSONArray("storelist");
                             List<StoreVO> storeVOS=new ArrayList<>();
 
                             for(int i=0, j=jsonArrayArticles.length(); i<j; i++){
                                 JSONObject object=jsonArrayArticles.getJSONObject(i);
-
                                 Log.d("StoreData",object.toString());
+
 
                                 StoreVO storeVO=new StoreVO();
                                 storeVO.setFoodCheck(object.getString("food"));
                                 storeVO.setStoreName(object.getString("shopname"));
                                 storeVO.setArea(object.getString("area"));
                                 storeVO.setImage(object.getString("fileRealName"));
+                                storeVO.setCloseTime(object.getString("closetime"));
+                                storeVO.setOpenTime(object.getString("opentime"));
+                                storeVO.setStorephone(object.getString("StorePhone"));
+                                storeVO.setComments(object.getString("comments"));
+                                storeVO.setSendData(object.getString("addr"));
+                                storeVO.setPrice(object.getString("price"));
+                                storeVO.setTopMessage(object.getString("topmessage"));
+
+//                                storeVO.setInformation(object.getString("information"));
                                 storeVOS.add(storeVO);
                             }
 
@@ -248,7 +253,8 @@ public class ChildMain extends AppCompatActivity {
                                         int position=(int) obj;
                                         ((StoreRegisterAdapter) mAdapter).getStoreVO(position).getOpenTime();
                                         Intent intent=new Intent(ChildMain.this, StoreDetail.class);
-                                        intent.putExtra("news", ((StoreRegisterAdapter)mAdapter).getStoreVO(position));
+                                        intent.putExtra("storeInfor", ((StoreRegisterAdapter)mAdapter).getStoreVO(position));
+                                        System.out.println(((StoreRegisterAdapter)mAdapter).getStoreVO(position).toString()+"넘기기전 값");
                                         startActivity(intent);
                                     }
                                 }
