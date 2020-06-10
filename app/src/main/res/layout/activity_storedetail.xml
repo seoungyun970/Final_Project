@@ -80,6 +80,7 @@
                     android:paddingLeft="25dip"
                     android:text="전화"
                     android:textColor="#000000"
+                    android:onClick="onClick"
                     android:textSize="18sp" />
 
                 <Button
