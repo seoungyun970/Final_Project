@@ -479,7 +479,6 @@ public class FoodActivity extends Activity implements View.OnClickListener {
                     bufferSize2 = Math.min(bytesAvailable2, maxBufferSize2);
                     bytesRead2 = mFileInputStream.read(buffer2, 0, bufferSize2);
                 }
-
                 dos.writeBytes(lineEnd);
                 dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
 
@@ -685,7 +684,6 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         {
             super.onPostExecute(result);
             loading.dismiss();
-            System.out.println("결과값이다!!!!!!!!!"+result);
             Intent intent = new Intent(FoodActivity.this, ManagerMain.class);
             startActivity(intent);
         }
