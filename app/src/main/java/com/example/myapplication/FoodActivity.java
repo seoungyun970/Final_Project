@@ -54,14 +54,11 @@ public class FoodActivity extends Activity implements View.OnClickListener {
     Spinner spinner;
     Boolean areaSet=true;
     String areaLocation;
-
-
-
     String img_path=null;
     String storeName=null;
 
     String storeimapath="http://3.12.173.221:8080/SunhanWeb/store/default.png";
-    String storeimapathTwo="http://3.12.173.221:8080/SunhanWeb/Store/";
+    String storeimapathTwo="http://3.12.173.221:8080/SunhanWeb/store/";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
@@ -419,7 +416,7 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         @Override
         protected String doInBackground(String... params) {
             try{
-                String URL =   "http://3.12.173.221:8080/SunhanWeb/androidaddStoreServlet.do";
+                String URL ="http://3.12.173.221:8080/SunhanWeb/androidaddStoreServlet.do";
                 String _id = (String) params[0];
                 String _storeName = (String) params[1];
                 String _sendData = (String) params[2];
@@ -473,7 +470,6 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         }
     }
 }
-
 
 
 
