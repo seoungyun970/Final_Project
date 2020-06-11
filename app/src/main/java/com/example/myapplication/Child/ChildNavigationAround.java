@@ -35,7 +35,6 @@ public class ChildNavigationAround extends Fragment {
         tMapView.setIconVisibility(true); //현재위치로 표시될 아이콘을 표시할지 여부를 설정합니다
         tMapView.setZoom(23);
 
-
         tMapView.setMapType(TMapView.MAPTYPE_STANDARD);
         tMapView.setLanguage(TMapView.LANGUAGE_KOREAN);
 
