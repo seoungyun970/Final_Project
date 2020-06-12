@@ -13,10 +13,19 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:background="@drawable/manager_main_corner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp">
+        </ImageView>
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -25,7 +34,9 @@
             android:fontFamily="@font/cafe24oneprettynight"
             android:text="내정보"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="28sp"
+            tools:layout_editor_absoluteX="181dp"
+            tools:layout_editor_absoluteY="16dp" />
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout

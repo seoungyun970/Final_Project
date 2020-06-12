@@ -15,23 +15,35 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar2"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/grad_color">
+                android:layout_height="wrap_content"
+                android:background="@drawable/manager_main_corner"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/logo"
+                    android:layout_gravity="center" />
 
                 <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/cafe24oneprettynight"
-                    android:gravity="center"
-                    android:text="매장 등록"
+                    android:text="매장등록"
                     android:textColor="#000000"
-                    android:textSize="30sp" />
+                    android:textSize="28sp" />
 
-            </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -442,7 +454,7 @@
                 android:id="@+id/storeBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/register_confirm"
+                android:background="@drawable/grad_color_bottom"
                 android:fontFamily="@font/cafe24oneprettynight"
                 android:onClick="onClick"
                 android:text="확인"
