@@ -110,6 +110,7 @@
                     android:gravity="left|center_vertical"
                     android:paddingLeft="25dip"
                     android:text="채팅"
+                    android:onClick="onClick"
                     android:textColor="#000000"
                     android:textSize="18sp" />
             </LinearLayout>

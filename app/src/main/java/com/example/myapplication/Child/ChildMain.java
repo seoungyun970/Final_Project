@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,6 +36,7 @@ import com.example.myapplication.Store.StoreAdapter;
 import com.example.myapplication.Store.SampleData;
 import com.example.myapplication.Store.StoreRegisterAdapter;
 import com.example.myapplication.StoreDetail;
+import com.example.myapplication.VO.StoreImageVO;
 import com.example.myapplication.VO.StoreVO;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -219,17 +221,17 @@ public class ChildMain extends AppCompatActivity {
                             JSONObject jsonObject=new JSONObject(response);
                             JSONArray jsonArrayArticles=jsonObject.getJSONArray("storelist");
                             List<StoreVO> storeVOS=new ArrayList<>();
-
+//                            List<StoreImageVO> storeImageVOS=new ArrayList<>();
                             for(int i=0, j=jsonArrayArticles.length(); i<j; i++){
                                 JSONObject object=jsonArrayArticles.getJSONObject(i);
                                 Log.d("StoreData",object.toString());
 
 
                                 StoreVO storeVO=new StoreVO();
+//                                StoreImageVO storeImageVO=new StoreImageVO();
                                 storeVO.setFoodCheck(object.getString("food"));
                                 storeVO.setStoreName(object.getString("shopname"));
                                 storeVO.setArea(object.getString("area"));
-                                storeVO.setImage(object.getString("fileRealName"));
                                 storeVO.setCloseTime(object.getString("closetime"));
                                 storeVO.setOpenTime(object.getString("opentime"));
                                 storeVO.setStorephone(object.getString("StorePhone"));
@@ -237,12 +239,10 @@ public class ChildMain extends AppCompatActivity {
                                 storeVO.setSendData(object.getString("addr"));
                                 storeVO.setPrice(object.getString("price"));
                                 storeVO.setTopMessage(object.getString("topmessage"));
-
+//                                storeImageVO.setFileRealName(object.getString(""));
 //                                storeVO.setInformation(object.getString("information"));
                                 storeVOS.add(storeVO);
                             }
-
-
                             // specify an adapter (see also next example)
                             mAdapter = new StoreRegisterAdapter(storeVOS,ChildMain.this, new View.OnClickListener(){
                                 @Override

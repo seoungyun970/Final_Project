@@ -22,7 +22,7 @@ public class StoreDetail extends AppCompatActivity {
     StoreVO store;
     private TextView textCloseTime,textOpenTime,textFood,textShopName,textArea,textPhone,textComments,textTopmessage,textAddr;
     private SimpleDraweeView imageFileRealName;
-    Button callbtn;
+    Button callbtn,chatbtn;
     Toolbar mToolbar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,6 +65,7 @@ public class StoreDetail extends AppCompatActivity {
         textAddr=findViewById(R.id.textAddr);
         imageFileRealName=findViewById(R.id.imageFileRealName);
         callbtn=findViewById(R.id.callbtn);
+        chatbtn=findViewById(R.id.chatbtn);
         callbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,6 +76,16 @@ public class StoreDetail extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        chatbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1=new Intent(StoreDetail.this,StoreChatting.class);
+                startActivity(intent1);
+            }
+        });
+
     }
 
     //이전 액티비티에서 받아오는 인텐트

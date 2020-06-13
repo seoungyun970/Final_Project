@@ -54,6 +54,7 @@
         <activity android:name=".Manager.ManagerMain" />
         <activity android:name=".StoreRegister"></activity>
         <activity android:name=".StoreDetail"></activity>
+        <activity android:name=".StoreChatting"></activity>
     </application>
 
 </manifest>
