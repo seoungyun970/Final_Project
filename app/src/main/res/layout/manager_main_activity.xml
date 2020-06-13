@@ -112,20 +112,16 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/pager"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="20dp" />
+            android:layout_height="match_parent" />
     </LinearLayout>
-
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabBackground="@drawable/tab_selector"
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp"
         app:tabMaxWidth="10dp">
-
     </com.google.android.material.tabs.TabLayout>
 
     <LinearLayout
@@ -145,7 +141,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -187,7 +183,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -229,7 +225,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">

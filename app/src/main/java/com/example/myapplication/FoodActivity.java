@@ -27,7 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.signature.StringSignature;
+import com.bumptech.glide.signature.ObjectKey;
 import com.example.myapplication.Manager.ManagerMain;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -598,13 +598,13 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
                 task2.execute(img_path); //1번
                 storeimapathTwo+=storeName;
                 System.out.println(storeimapathTwo.replaceAll(" ","")+"선택");
-                Glide.clear(storePic);
+//                Glide.clear(storePic);
                 resetGlide();
 
                 Glide.with(this)
                         .load(storeimapathTwo.replaceAll(" ",""))
-                        .signature(new StringSignature(UUID.randomUUID().toString())).into(storePic);
-
+                        .signature(new ObjectKey(UUID.randomUUID().toString())).into(storePic);
+                        // Glide v4.9.0으로 변경 후 Signature -> ObjectKey로 바꿈
                 break;
         }
         ////////////////////////////////////////// 카테고리 그룹체크

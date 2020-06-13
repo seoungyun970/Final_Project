@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,14 +18,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.myapplication.Child.ChildMain;
 import com.example.myapplication.FoodActivity;
 import com.example.myapplication.LoginActivity;
-import com.example.myapplication.Pager.Fragment1;
-import com.example.myapplication.Pager.Fragment2;
-import com.example.myapplication.Pager.Fragment3;
+import com.example.myapplication.Pager.MyPagerAdapter;
+import com.example.myapplication.Pager.ViewPagerItemFragment;
 import com.example.myapplication.R;
 import com.example.myapplication.VO.SunhansVO;
+import com.example.myapplication.models.Hat;
+import com.example.myapplication.resources.Hats;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -35,6 +35,10 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
     TextView mainname;
     Toolbar myToolbar;
     String a;
+
+    private ViewPager mMyViewPager;
+    private TabLayout mTabLayout;
+
     public static Context context_main;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,23 +60,22 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
         a=user2.getName();
         mainname.setText(a);
         storeRegister.setOnClickListener(this);
-        //뷰 페이저
-        ViewPager pager = findViewById(R.id.pager);
-        pager.setOffscreenPageLimit(3);
 
-        ManagerMain.MoviePagerAdapter adapter = new ManagerMain.MoviePagerAdapter(getSupportFragmentManager());
+        mTabLayout = findViewById(R.id.tab_layout);
+        mMyViewPager = findViewById(R.id.pager);
 
-        Fragment1 fragment1 = new Fragment1();
-        adapter.addItem(fragment1);
-
-        Fragment2 fragment2 = new Fragment2();
-        adapter.addItem(fragment2);
-
-        Fragment3 fragment3 = new Fragment3();
-        adapter.addItem(fragment3);
-
-        pager.setAdapter(adapter);
-
+        init();
+    }
+    private void init(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        Hat[] hats = Hats.getHats();
+        for(Hat hat: hats){
+            ViewPagerItemFragment fragment = ViewPagerItemFragment.getInstance(hat);
+            fragments.add(fragment);
+        }
+        MyPagerAdapter pagerAdapter = new MyPagerAdapter(getSupportFragmentManager(), fragments);
+        mMyViewPager.setAdapter(pagerAdapter);
+        mTabLayout.setupWithViewPager(mMyViewPager, true);
     }
     //추가된 소스, ToolBar에 menu.xml을 인플레이트함
 

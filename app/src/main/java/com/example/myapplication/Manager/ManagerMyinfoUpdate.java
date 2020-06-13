@@ -1,9 +1,6 @@
 package com.example.myapplication.Manager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -14,35 +11,32 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.myapplication.Child.ChildMain;
-import com.example.myapplication.JSON.JSON;
-import com.example.myapplication.LoginActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.myapplication.R;
-import com.example.myapplication.VO.SunhansVO;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
-public class ManagerMyinfoUpdate extends Activity {
+public class ManagerMyinfoUpdate extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 0;
     private ImageView imageView;
     String img_path;
     String imageName;
+    Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -65,6 +59,23 @@ public class ManagerMyinfoUpdate extends Activity {
             }
         });
         tedPermission();
+
+        mToolbar = (Toolbar)findViewById(R.id.updatetoolbar);
+        setSupportActionBar(mToolbar);
+        // 툴바 뒤로가기 버튼생성
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // 툴바 타이틀 삭제
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
