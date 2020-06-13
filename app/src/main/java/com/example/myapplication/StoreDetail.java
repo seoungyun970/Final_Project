@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,12 +7,15 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,8 +23,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.myapplication.Child.ChildMain;
-import com.example.myapplication.Store.StoreRegisterAdapter;
+import com.example.myapplication.Manager.ManagerMain;
+import com.example.myapplication.Pager.Fragment1;
+import com.example.myapplication.Pager.Fragment2;
+import com.example.myapplication.Pager.Fragment3;
+import com.example.myapplication.Store.Store;
 import com.example.myapplication.VO.StoreImageVO;
 import com.example.myapplication.VO.StoreVO;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -44,6 +49,7 @@ public class StoreDetail extends AppCompatActivity {
     Toolbar mToolbar;
     RequestQueue queue;
     String id;
+    private ViewPager mMyViewPager;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +67,6 @@ public class StoreDetail extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -197,7 +202,6 @@ public class StoreDetail extends AppCompatActivity {
                 textFood.setText(food);
                 textShopName.setText(shopName);
                 textArea.setText(location);
-                textPhone.setText(phone);
                 textComments.setText(comments);
                 textTopmessage.setText(topMessage);
                 textAddr.setText(addr);
@@ -242,16 +246,16 @@ public class StoreDetail extends AppCompatActivity {
                             JSONObject jsonObject1=new JSONObject(response);
                             JSONArray jsonArrayArticles=jsonObject1.getJSONArray("storeImagelist");
                             storeVOS=new ArrayList<>();
-                             for(int i=0, j=jsonArrayArticles.length(); i<j; i++){
+                            for(int i=0, j=jsonArrayArticles.length(); i<j; i++){
                                 JSONObject object=jsonArrayArticles.getJSONObject(i);
                                 Log.d("storeImagelist",object.toString());
                                 StoreImageVO storeVO=new StoreImageVO();
 //                                System.out.println(object.getString("fileRealName"));
                                 storeVO.setFileRealName(object.getString("fileRealName"));
                                 storeVOS.add(storeVO);
-                                 Uri uri1 = Uri.parse("http://3.12.173.221:8080/SunhanWeb/store/"+storeVOS.get(i).getFileRealName());
-                                 System.out.println("uri11111111111111111111111"+uri1);
-                                 imageFileRealName[i].setImageURI(uri1);
+                                Uri uri1 = Uri.parse("http://3.12.173.221:8080/SunhanWeb/store/"+storeVOS.get(i).getFileRealName());
+                                System.out.println("uri11111111111111111111111"+uri1);
+                                imageFileRealName[i].setImageURI(uri1);
 //                                 Uri uri2 = Uri.parse("http://3.12.173.221:8080/SunhanWeb/store/"+storeVOS.get(1).getFileRealName());
 //                                 System.out.println(uri2);
 //                                 imageFileRealName1.setImageURI(uri2);
