@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -14,24 +15,44 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.myapplication.Child.ChildMain;
+import com.example.myapplication.Store.StoreRegisterAdapter;
+import com.example.myapplication.VO.StoreImageVO;
 import com.example.myapplication.VO.StoreVO;
 import com.facebook.drawee.view.SimpleDraweeView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class StoreDetail extends AppCompatActivity {
     StoreVO store;
+    List<StoreImageVO> storeVOS;
     private TextView textCloseTime,textOpenTime,textFood,textShopName,textArea,textPhone,textComments,textTopmessage,textAddr;
-    private SimpleDraweeView imageFileRealName;
+    SimpleDraweeView imageFileRealName[]=new SimpleDraweeView[3];
     Button callbtn,chatbtn;
     Toolbar mToolbar;
+    RequestQueue queue;
+    String id;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storedetail);
         setComp();
         getNewsDetail();
+        getData();
         setNews();
-
+        queue= Volley.newRequestQueue(this);
         mToolbar = (Toolbar)findViewById(R.id.storedetailtool);
         setSupportActionBar(mToolbar);
         // 툴바 뒤로가기 버튼생성
@@ -63,9 +84,12 @@ public class StoreDetail extends AppCompatActivity {
         textComments=findViewById(R.id.textComments);
         textTopmessage=findViewById(R.id.textTopmessage);
         textAddr=findViewById(R.id.textAddr);
-        imageFileRealName=findViewById(R.id.imageFileRealName);
+        imageFileRealName[0]=findViewById(R.id.imageFileRealName);
+        imageFileRealName[1]=findViewById(R.id.imageFileRealName1);
+        imageFileRealName[2]=findViewById(R.id.imageFileRealName2);
         callbtn=findViewById(R.id.callbtn);
         chatbtn=findViewById(R.id.chatbtn);
+        queue= Volley.newRequestQueue(this);
         callbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,6 +128,7 @@ public class StoreDetail extends AppCompatActivity {
     //이전 액티비티에서 받아오는 인텐트에서 정보 뿌려준다
     public void setNews() {
         if(this.store != null) {
+
             String closeTime = this.store.getCloseTime();
             String openTime = this.store.getOpenTime();
             String food=this.store.getFoodCheck();
@@ -165,7 +190,7 @@ public class StoreDetail extends AppCompatActivity {
             else if(area.equals("a17")){
                 location="태릉/노원/도봉/창동";
             }
-            Uri uri = Uri.parse("http://3.12.173.221:8080/SunhanWeb/store/"+this.store.getImage());
+
             try {
                 textCloseTime.setText(closeTime);
                 textOpenTime.setText(openTime);
@@ -176,7 +201,7 @@ public class StoreDetail extends AppCompatActivity {
                 textComments.setText(comments);
                 textTopmessage.setText(topMessage);
                 textAddr.setText(addr);
-                imageFileRealName.setImageURI(uri);
+
             }catch (Exception e){
 
             }
@@ -186,5 +211,66 @@ public class StoreDetail extends AppCompatActivity {
 //                TextView_content.setText(content);
 //            }
         }
+
+        if(this.storeVOS!=null){
+            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa"+storeVOS.toString());
+
+
+
+            try{
+
+
+
+            }catch (Exception e){
+
+            }
+        }
+
+    }
+    public void getData(){
+        String url="http://3.12.173.221:8080/SunhanWeb/androidgetStoreImageServlet.do?id="+store.getId();
+        System.out.println("sssssssssssssssssssssssssssssssssssss"+url);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+//                        Log.d("storeImagelist",response);
+                        //response를 StoreData Class에 분류
+                        //try catch 구문 사용하는 이유는 response가 json이 아닌데 사용할려고 하다보니 생기는 문제!!!!!!!!!!!!!
+                        try {
+                            JSONObject jsonObject1=new JSONObject(response);
+                            JSONArray jsonArrayArticles=jsonObject1.getJSONArray("storeImagelist");
+                            storeVOS=new ArrayList<>();
+                             for(int i=0, j=jsonArrayArticles.length(); i<j; i++){
+                                JSONObject object=jsonArrayArticles.getJSONObject(i);
+                                Log.d("storeImagelist",object.toString());
+                                StoreImageVO storeVO=new StoreImageVO();
+//                                System.out.println(object.getString("fileRealName"));
+                                storeVO.setFileRealName(object.getString("fileRealName"));
+                                storeVOS.add(storeVO);
+                                 Uri uri1 = Uri.parse("http://3.12.173.221:8080/SunhanWeb/store/"+storeVOS.get(i).getFileRealName());
+                                 System.out.println("uri11111111111111111111111"+uri1);
+                                 imageFileRealName[i].setImageURI(uri1);
+//                                 Uri uri2 = Uri.parse("http://3.12.173.221:8080/SunhanWeb/store/"+storeVOS.get(1).getFileRealName());
+//                                 System.out.println(uri2);
+//                                 imageFileRealName1.setImageURI(uri2);
+//                                 Uri uri3 = Uri.parse("http://3.12.173.221:8080/SunhanWeb/store/"+storeVOS.get(2).getFileRealName());
+//                                 System.out.println(uri3);
+//                                 imageFileRealName2.setImageURI(uri3);
+                            }
+                            // specify an adapter (see also next example)
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        queue.add(stringRequest);
     }
 }
