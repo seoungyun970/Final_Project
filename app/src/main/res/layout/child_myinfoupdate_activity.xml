@@ -39,29 +39,34 @@
 
     <LinearLayout
         android:id="@+id/linearId"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myinfoupdatetoolbar">
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
-            android:text="  아이디"
+            android:fontFamily="@font/cafe24oneprettynight"
+            android:text=" 아이디"
             android:textSize="17sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/cafe24oneprettynight" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:ems="17"
+            android:fontFamily="@font/cafe24oneprettynight"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -69,26 +74,31 @@
         android:id="@+id/linearPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearId">
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
-            android:text="  전화번호"
+            android:fontFamily="@font/cafe24oneprettynight"
+            android:text=" 전화번호"
             android:textSize="17sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/cafe24oneprettynight" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:ems="17"
+            android:fontFamily="@font/cafe24oneprettynight"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -96,27 +106,32 @@
         android:id="@+id/linearEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearPhone">
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
-            android:text="  이메일"
+            android:fontFamily="@font/cafe24oneprettynight"
+            android:text=" 이메일"
             android:textSize="17sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/cafe24oneprettynight" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:ems="17"
+            android:fontFamily="@font/cafe24oneprettynight"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -124,27 +139,32 @@
         android:id="@+id/linearAddr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearEmail">
 
         <TextView
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
-            android:text="  주소"
+            android:fontFamily="@font/cafe24oneprettynight"
+            android:text=" 주소"
             android:textSize="17sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/cafe24oneprettynight" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editText4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:ems="17"
+            android:fontFamily="@font/cafe24oneprettynight"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -157,7 +177,7 @@
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:fontFamily="@font/cafe24oneprettynight"
+        android:fontFamily="@font/cafe24oneprettynight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
