@@ -99,32 +99,8 @@ public class ChildMain extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         queue= Volley.newRequestQueue(this);
         getData();
-
-
-        //아이템 로드
-//        adapter.setItems(new SampleData().getItems());
-
-
-
-        //뷰 페이저
-//        ViewPager pager = findViewById(R.id.pager1);
-//        pager.setOffscreenPageLimit(3);
-//
-//        ChildMain.MoviePagerAdapter adapter = new ChildMain.MoviePagerAdapter(getSupportFragmentManager());
-//
-//        Fragment1 fragment1 = new Fragment1();
-//        adapter.addItem(fragment1);
-//
-//        Fragment2 fragment2 = new Fragment2();
-//        adapter.addItem(fragment2);
-//
-//        Fragment3 fragment3 = new Fragment3();
-//        adapter.addItem(fragment3);
-//
-//        pager.setAdapter(adapter);
     }
 
-    //추가된 소스, ToolBar에 menu.xml을 인플레이트함
 
     public boolean onCreateOptionsMenu(Menu menu) {
         //return super.onCreateOptionsMenu(menu);
@@ -221,14 +197,11 @@ public class ChildMain extends AppCompatActivity {
                             JSONObject jsonObject=new JSONObject(response);
                             JSONArray jsonArrayArticles=jsonObject.getJSONArray("storelist");
                             List<StoreVO> storeVOS=new ArrayList<>();
-//                            List<StoreImageVO> storeImageVOS=new ArrayList<>();
                             for(int i=0, j=jsonArrayArticles.length(); i<j; i++){
                                 JSONObject object=jsonArrayArticles.getJSONObject(i);
                                 Log.d("StoreData",object.toString());
-
-
                                 StoreVO storeVO=new StoreVO();
-//                                StoreImageVO storeImageVO=new StoreImageVO();
+                                storeVO.setId(object.getString("userid"));
                                 storeVO.setFoodCheck(object.getString("food"));
                                 storeVO.setStoreName(object.getString("shopname"));
                                 storeVO.setArea(object.getString("area"));
@@ -239,8 +212,7 @@ public class ChildMain extends AppCompatActivity {
                                 storeVO.setSendData(object.getString("addr"));
                                 storeVO.setPrice(object.getString("price"));
                                 storeVO.setTopMessage(object.getString("topmessage"));
-//                                storeImageVO.setFileRealName(object.getString(""));
-//                                storeVO.setInformation(object.getString("information"));
+                                storeVO.setImage(object.getString("fileRealName"));
                                 storeVOS.add(storeVO);
                             }
                             // specify an adapter (see also next example)
