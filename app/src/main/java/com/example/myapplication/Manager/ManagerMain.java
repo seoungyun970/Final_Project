@@ -32,6 +32,7 @@ import java.util.ArrayList;
 
 public class ManagerMain extends AppCompatActivity implements View.OnClickListener {
     ImageView storeRegister;
+    ImageView storeComnuity;
     TextView mainname;
     Toolbar myToolbar;
     String a;
@@ -46,6 +47,8 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.manager_main_activity);
         mainname=findViewById(R.id.mainName);
         storeRegister=findViewById(R.id.storeRegister);
+        storeComnuity=findViewById(R.id.storeComunity);
+
         // 추가된 소스, Toolbar를 생성
         myToolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
@@ -60,6 +63,7 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
         a=user2.getName();
         mainname.setText(a);
         storeRegister.setOnClickListener(this);
+        storeComnuity.setOnClickListener(this);
 
         mTabLayout = findViewById(R.id.tab_layout);
         mMyViewPager = findViewById(R.id.pager);
@@ -123,6 +127,10 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
 //                Intent intent2=new Intent(ManagerMain.this, ComunityActivity.class);
 //                startActivity(intent2);
 //                break;
+            case R.id.storeComunity:
+                Intent intent5=new Intent(ManagerMain.this, ManagerComunity.class);
+                startActivity(intent5);
+                break;
             case R.id.storeRegister:
                 Intent intent4=new Intent(ManagerMain.this, FoodActivity.class);
                 startActivity(intent4);
