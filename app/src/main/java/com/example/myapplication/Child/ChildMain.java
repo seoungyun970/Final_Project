@@ -183,7 +183,6 @@ public class ChildMain extends AppCompatActivity {
 
     public void getData(){
         String url="http://3.12.173.221:8080/SunhanWeb/androidgetStoreServlet.do";
-
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {

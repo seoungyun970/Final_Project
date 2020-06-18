@@ -45,7 +45,7 @@ public class FoodActivity extends Activity implements View.OnClickListener {
     TextView main_address;
     TextInputEditText storeId,detail_address,topMessage;
     Button storeBtn;
-    private int REQUEST_TEST = 1;
+    private int REQUEST_TEST = 3;
     EditText loginStoreId,openTime,finishTime,comments,storePhone,information;
 
     ImageView storePic;
@@ -201,32 +201,25 @@ public class FoodActivity extends Activity implements View.OnClickListener {
         });
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode==RESULT_OK){
-            String data1=data.getStringExtra("sendData");
-            main_address.setText(data1);
+        if(requestCode==REQUEST_TEST){
+            if(resultCode==RESULT_OK){
+                String data1=data.getStringExtra("sendData");
+                main_address.setText(data1);
+            }
         }
         if (requestCode == REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 try {
                     InputStream in = getContentResolver().openInputStream(data.getData());
-
                     Bitmap img = BitmapFactory.decodeStream(in);
-
                     in.close();
-
                     storePic.setImageBitmap(img);
-
-
                 } catch (Exception e) {
-
                 }
-
                 img_path = getImagePathToUri(data.getData()); //이미지의 URI를 얻어 경로값으로 반환.
-
-
             }
             else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();

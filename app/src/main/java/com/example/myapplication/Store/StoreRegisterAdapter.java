@@ -70,14 +70,8 @@ public class StoreRegisterAdapter extends RecyclerView.Adapter<StoreRegisterAdap
         holder.tv_item_movie_genre.setText(storeData.getFoodCheck());
         holder.tv_item_movie_title.setText(storeData.getStoreName());
         holder.tv_item_movie_content.setText(storeData.getStorephone());
-
-
-
         Uri uri = Uri.parse("http://3.12.173.221:8080/SunhanWeb/store/"+storeData.getImage());
-
         holder.iv_item_movie.setImageURI(uri);
-
-
         holder.rootView.setTag(position);
         //이미지 삽입
 //        Uri uri = Uri.parse(storeData.getUrlToImage());

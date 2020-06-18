@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.Child.ChildMain;
+import com.example.myapplication.Child.ChildStoreReserve;
 import com.example.myapplication.Store.StoreRegisterAdapter;
 import com.example.myapplication.VO.StoreImageVO;
 import com.example.myapplication.VO.StoreVO;
@@ -38,7 +39,7 @@ import java.util.List;
 public class StoreDetail extends AppCompatActivity {
     StoreVO store;
     List<StoreImageVO> storeVOS;
-    private TextView textCloseTime,textOpenTime,textFood,textShopName,textArea,textPhone,textComments,textTopmessage,textAddr;
+    private TextView textCloseTime,textOpenTime,textFood,textShopName,textArea,textPhone,textComments,textTopmessage,textAddr,reservebtn1;
     SimpleDraweeView imageFileRealName[]=new SimpleDraweeView[3];
     Button callbtn,chatbtn;
     Toolbar mToolbar;
@@ -84,6 +85,7 @@ public class StoreDetail extends AppCompatActivity {
         textComments=findViewById(R.id.textComments);
         textTopmessage=findViewById(R.id.textTopmessage);
         textAddr=findViewById(R.id.textAddr);
+        reservebtn1=findViewById(R.id.reservebtn1);
         imageFileRealName[0]=findViewById(R.id.imageFileRealName);
         imageFileRealName[1]=findViewById(R.id.imageFileRealName1);
         imageFileRealName[2]=findViewById(R.id.imageFileRealName2);
@@ -100,7 +102,13 @@ public class StoreDetail extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        reservebtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(StoreDetail.this,ChildStoreReserve.class);
+                startActivity(intent);
+            }
+        });
 
         chatbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,8 +137,8 @@ public class StoreDetail extends AppCompatActivity {
     public void setNews() {
         if(this.store != null) {
 
-            String closeTime = this.store.getCloseTime();
-            String openTime = this.store.getOpenTime();
+            String closeTime = this.store.getCloseTime().substring(0,2);
+            String openTime = this.store.getOpenTime().substring(0,2);
             String food=this.store.getFoodCheck();
             String shopName=this.store.getStoreName();
             String area=this.store.getArea();
@@ -192,8 +200,8 @@ public class StoreDetail extends AppCompatActivity {
             }
 
             try {
-                textCloseTime.setText(closeTime);
-                textOpenTime.setText(openTime);
+                textCloseTime.setText(closeTime+"시");
+                textOpenTime.setText(openTime+"시");
                 textFood.setText(food);
                 textShopName.setText(shopName);
                 textArea.setText(location);
