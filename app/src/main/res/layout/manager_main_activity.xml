@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8E8E8"
+    android:background="@drawable/login1"
     android:orientation="vertical"
     tools:context=".Child.ChildMain"
     android:weightSum="1">
@@ -48,6 +48,7 @@
         android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,6 +92,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:text="오늘도 소중한 방문 감사드립니다."
             android:textColor="#000000"
             android:textSize="22sp"
@@ -101,7 +103,7 @@
         android:id="@+id/linearLayout9"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="0.45"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout8"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,19 +113,27 @@
             android:id="@+id/pager"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
     </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="fill"
+        app:tabIndicatorHeight="0dp"
+        app:tabMaxWidth="10dp"></com.google.android.material.tabs.TabLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginBottom="14dp"
-        android:layout_weight="0.5"
+        android:layout_weight="0.55"
         android:background="@drawable/main_corner"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -159,6 +169,7 @@
                 android:id="@+id/imageView4"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/meeting" />
 
             <TextView
@@ -201,6 +212,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/complain" />
 
             <TextView
@@ -223,10 +235,11 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/storeComunity"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
+                android:onClick="onClick"
                 android:src="@drawable/web" />
 
             <TextView
@@ -245,6 +258,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
                 android:onClick="onClick"
                 android:src="@drawable/more111" />
 
@@ -261,7 +275,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </LinearLayout>

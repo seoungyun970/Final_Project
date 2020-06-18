@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -8,11 +7,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,11 +23,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.signature.StringSignature;
+import com.bumptech.glide.signature.ObjectKey;
 import com.example.myapplication.Manager.ManagerMain;
-import com.example.myapplication.Manager.ManagerMyinfoUpdate;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.BufferedReader;
@@ -41,7 +40,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
 
-public class FoodActivity extends Activity implements View.OnClickListener {
+public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
+    Toolbar mToolbar;
+
     TextView main_address;
     TextInputEditText storeId,detail_address,topMessage;
     Button storeBtn;
@@ -131,7 +132,27 @@ public class FoodActivity extends Activity implements View.OnClickListener {
             }
         });
         Glide.with(this).load(storeimapath).into(storePic3);
+
+        mToolbar = (Toolbar)findViewById(R.id.foodtoolbar);
+        setSupportActionBar(mToolbar);
+        // 툴바 뒤로가기 버튼생성
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // 툴바 타이틀 삭제
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void getSpinner(){
         ArrayAdapter areaAdapter=ArrayAdapter.createFromResource(this, R.array.spinnerArea, android.R.layout.simple_spinner_dropdown_item);
         areaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -570,13 +591,13 @@ public class FoodActivity extends Activity implements View.OnClickListener {
                 task2.execute(img_path); //1번
                 storeimapathTwo+=storeName;
                 System.out.println(storeimapathTwo.replaceAll(" ","")+"선택");
-                Glide.clear(storePic);
+//                Glide.clear(storePic);
                 resetGlide();
 
                 Glide.with(this)
                         .load(storeimapathTwo.replaceAll(" ",""))
-                        .signature(new StringSignature(UUID.randomUUID().toString())).into(storePic);
-
+                        .signature(new ObjectKey(UUID.randomUUID().toString())).into(storePic);
+                        // Glide v4.9.0으로 변경 후 Signature -> ObjectKey로 바꿈
                 break;
         }
         ////////////////////////////////////////// 카테고리 그룹체크

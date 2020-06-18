@@ -6,13 +6,13 @@
 
     <item
         android:id="@+id/action_child_serarch"
-        android:title="채팅"
-        android:icon="@drawable/ic_search_black_24dp"
+        android:title="검색"
+        android:icon="@drawable/search123"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_child_myinfo"
         android:title="내정보"
-        android:icon="@drawable/ic_mood_black_24dp"
+        android:icon="@drawable/people2"
         app:showAsAction="ifRoom"/>
 
 

@@ -18,14 +18,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/logo"
             android:layout_gravity="center"
+            android:src="@drawable/logo"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="3dp">
-        </ImageView>
+            tools:layout_editor_absoluteY="3dp"></ImageView>
+
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -40,13 +41,60 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/storedetailtool">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageFileRealName"
+                android:layout_width="385dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:scaleType="fitXY" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageFileRealName1"
+                android:layout_width="385dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:scaleType="fitXY" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageFileRealName2"
+                android:layout_width="385dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:scaleType="fitXY" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <ScrollView
+        android:id="@+id/scrollView4"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/storedetailtool">
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView3">
 
         <LinearLayout
             android:id="@+id/linearLayout24"
@@ -57,34 +105,6 @@
             android:layout_marginRight="15dp"
             android:background="@drawable/main_corner"
             android:orientation="vertical">
-
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/imageFileRealName"
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
-                android:scaleType="centerCrop" />
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/imageFileRealName1"
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
-                android:scaleType="centerCrop" />
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/imageFileRealName2"
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
-                android:scaleType="centerCrop" />
 
 
             <LinearLayout
@@ -102,10 +122,10 @@
                     android:drawablePadding="15dip"
                     android:fontFamily="@font/cafe24oneprettynight"
                     android:gravity="left|center_vertical"
+                    android:onClick="onClick"
                     android:paddingLeft="25dip"
                     android:text="전화"
                     android:textColor="#000000"
-                    android:onClick="onClick"
                     android:textSize="18sp" />
 
                 <Button
@@ -133,9 +153,9 @@
                     android:drawablePadding="15dip"
                     android:fontFamily="@font/cafe24oneprettynight"
                     android:gravity="left|center_vertical"
+                    android:onClick="onClick"
                     android:paddingLeft="25dip"
                     android:text="채팅"
-                    android:onClick="onClick"
                     android:textColor="#000000"
                     android:textSize="18sp" />
             </LinearLayout>
