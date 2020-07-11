@@ -14,4 +14,5 @@
 ![ezgif com-video-to-gif (6)](https://user-images.githubusercontent.com/55783172/87222735-5b808b00-c3b1-11ea-9f94-5e452fb8dddc.gif)
 - 식당 리뷰 추가/삭제/수정  (gif 용량이 큰관계로 2번에 나누어서 업로드)
 ![ezgif com-video-to-gif (7)](https://user-images.githubusercontent.com/55783172/87222876-bbc3fc80-c3b2-11ea-952e-4f60487094d1.gif)
+![ezgif com-video-to-gif (8)](https://user-images.githubusercontent.com/55783172/87222901-ed3cc800-c3b2-11ea-8632-69aa19671426.gif)
 
