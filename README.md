@@ -5,8 +5,8 @@
 #### [본인역활]
 - kakao 도로명주소 사용,식당등록(이미지 업로드 부분은 본인x)
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/55783172/87222408-5a019380-c3ae-11ea-8727-e924bc201c8d.gif)
-
 - JSON값 받아와서 식당리스트 출력,식당내 세부카테고리 출력
+![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/55783172/87222542-3db22680-c3af-11ea-8e04-14b98803df56.gif)
 - TMap api 사용해서 주위 식당리스트 마커로 보여주기(도로명 주소 때 사용했던 값들을 지오코더로 위도 경도값으로 변환하여 사용),해당 식당클릭시 tmap과 연동되어 실시간 길찾기 서비스
 - 식당 리뷰 추가/삭제/수정
 - 식당 예약/취소/승인/대기
