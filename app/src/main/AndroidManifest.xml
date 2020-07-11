@@ -5,7 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +23,8 @@
         android:targetSandboxVersion="1"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Child.ChildIntroduceProject"></activity>
+
+        <activity android:name=".Child.ChildIntroduceProject" />
         <activity android:name=".Child.ChildSearch" />
         <activity android:name=".Child.ChildMyinfoUpdate" />
         <activity android:name=".Child.ChildMyinfo" />
@@ -47,8 +54,28 @@
         <activity android:name=".main" />
         <activity android:name=".manager" />
         <activity android:name=".Manager.ManagerMain" />
-        <activity android:name=".StoreRegister"></activity>
-
+        <activity android:name=".StoreRegister" />
+        <activity android:name=".StoreDetail" />
+        <activity android:name=".StoreChatting" />
+        <activity android:name=".Manager.ManagerComunity" />
+        <activity android:name=".Manager.ManagerComunityWriter" />
+        <activity android:name=".Child.ChildStoreReserve" />
+        <activity android:name=".Child.ChildMainReserve" />
+        <activity android:name=".Child.ChildMainReserveDetail" />
+        <activity android:name=".Child.ChildStoreReserveFail" />
+        <activity android:name=".Manager.ManagerReserve" />
+        <activity android:name=".Manager.ManagerReserveDetail" />
+        <activity android:name=".Child.ChildMainKoreanFood" />
+        <activity android:name=".Child.ChildMainChineseFood" />
+        <activity android:name=".Child.ChildMainwesternFood" />
+        <activity android:name=".Child.ChildMainsushi" />
+        <activity android:name=".Child.ChildMainsnackFood" />
+        <activity android:name=".Child.ChildMainDessert" />
+        <activity android:name=".Child.ChildMainChatList" />
+        <activity android:name=".Child.ChildMainChatDetail" />
+        <activity android:name=".Child.ChildReview" />
+        <activity android:name=".StoreDetailReview"/>
+        <activity android:name=".Manager.ManagerReviewList"/>
     </application>
 
 </manifest>

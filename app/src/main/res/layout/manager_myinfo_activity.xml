@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,12 +11,19 @@
         android:id="@+id/mmyinfotoolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/manager_main_corner"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp"/>
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -24,7 +32,9 @@
             android:fontFamily="@font/cafe24oneprettynight"
             android:text="내정보"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="28sp"
+            tools:layout_editor_absoluteX="181dp"
+            tools:layout_editor_absoluteY="16dp" />
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -87,20 +97,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <Button
-            android:id="@+id/donabtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            android:fontFamily="@font/cafe24oneprettynight"
-            android:gravity="left|center_vertical"
-            android:onClick="onClick"
-            android:text="      후원 이력"
-            android:textStyle="bold" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
 
     <LinearLayout
         android:id="@+id/reserve_list"
@@ -110,20 +107,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dona_list">
-
-        <Button
-            android:id="@+id/reservebtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            android:fontFamily="@font/cafe24oneprettynight"
-            android:gravity="left|center_vertical"
-            android:onClick="onClick"
-            android:text="      예약 페이지"
-            android:textStyle="bold" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/dona_list"/>
 
     <LinearLayout
         android:id="@+id/comunity_list"
@@ -133,19 +117,6 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reserve_list">
-
-        <Button
-            android:id="@+id/comunitybtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            android:fontFamily="@font/cafe24oneprettynight"
-            android:gravity="left|center_vertical"
-            android:onClick="onClick"
-            android:text="      커뮤니티"
-            android:textStyle="bold" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/reserve_list"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,6 +38,10 @@
     <style name="df_h6" parent="df_headdings">
         <item name="android:textSize">16sp</item>
     </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/star_yellow</item>
+        <item name="colorControlActivated">@color/star_yellow</item>
+    </style>
 
     <!--styles for login ends here-->
 </resources>

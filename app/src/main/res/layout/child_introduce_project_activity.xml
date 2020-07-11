@@ -12,10 +12,18 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:background="@drawable/manager_main_corner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp">
+        </ImageView>
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -24,72 +32,104 @@
             android:fontFamily="@font/cafe24oneprettynight"
             android:text="프로젝트 소개"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="28sp"
+            tools:layout_editor_absoluteX="154dp"
+            tools:layout_editor_absoluteY="16dp" />
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/projecttoolbar">
 
         <LinearLayout
+            android:id="@+id/project1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="세상은 다양하다. 차이와 다름이 존재한다."
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/cafe24oneprettynight" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="이 다양성은 서로 연결되며 우리의 삶에 영향을 미친다. 상호관계 속에서 어느 한쪽의 붕괴와 소멸은 인류의 생존에 위협을 가한다. 우리자신도 예외일 수는 없다. 서로 도우며 공존해야 하는 이유이다. 이는 인류는 물론 동식물을 비롯한 자연환경가지 아우르는 포괄적 명제에 해당한다."
+                android:textSize="16sp"
+                app:fontFamily="@font/cafe24oneprettynight" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="한 개인의 힘은 미약하다. 하지만 그 작은 힘이 뭉치면 강해진다. 즉 내가 아닌 우리가 되었을 때 그 영향력은 증폭된다. '선한 영향력'이란 혼자가 아닌 우리가 되어 서로를 격려해 주는 작은 개인의 힘을 말한다. 또한 인류와 지구 생명체의 공존을 위한 지속적인 실천의 힘을 의미한다."
+                android:textSize="16sp"
+                app:fontFamily="@font/cafe24oneprettynight" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="'선한 영향력'은 결식아동들을 위해 나눔(후원) 활동을 합니다. 나눔 지역의 의, 식, 주, 시선 개선을 목표로 하고 있습니다. 아동들의 건강을, 환경 개선을 통해 삶의 질 향상을 통해 청소년 계몽을 이루고자 합니다. 꿈과 비전을 심어줄 계획입니다."
+                android:textSize="16sp"
+                app:fontFamily="@font/cafe24oneprettynight" />
+        </LinearLayout>
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/project1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="15dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/projecttoolbar"
-        tools:layout_editor_absoluteX="7dp">
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView27"
+            android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="세상은 다양하다. 차이와 다름이 존재한다."
-            android:textSize="22sp"
+            android:gravity="center_horizontal"
+            android:text="영진전문대학교 GC_B 일개미조"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:fontFamily="@font/cafe24oneprettynight" />
 
         <TextView
-            android:id="@+id/textView28"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:text="이 다양성은 서로 연결되며 우리의 삶에 영향을 미친다. 상호관계 속에서 어느 한쪽의 붕괴와 소멸은 인류의 생존에 위협을 가한다. 우리자신도 예외일 수는 없다. 서로 도우며 공존해야 하는 이유이다. 이는 인류는 물론 동식물을 비롯한 자연환경가지 아우르는 포괄적 명제에 해당한다."
-            android:textSize="16sp"
-            app:fontFamily="@font/cafe24oneprettynight" />
-
-        <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/textView31"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:text="한 개인의 힘은 미약하다. 하지만 그 작은 힘이 뭉치면 강해진다. 즉 내가 아닌 우리가 되었을 때 그 영향력은 증폭된다. '선한 영향력'이란 혼자가 아닌 우리가 되어 서로를 격려해 주는 작은 개인의 힘을 말한다. 또한 인류와 지구 생명체의 공존을 위한 지속적인 실천의 힘을 의미한다."
-            android:textSize="16sp"
-            app:fontFamily="@font/cafe24oneprettynight" />
-
-        <TextView
-            android:id="@+id/textView30"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:text="'선한 영향력'은 결식아동들을 위해 나눔(후원) 활동을 합니다. 나눔 지역의 의, 식, 주, 시선 개선을 목표로 하고 있습니다. 아동들의 건강을, 환경 개선을 통해 삶의 질 향상을 통해 청소년 계몽을 이루고자 합니다. 꿈과 비전을 심어줄 계획입니다."
-            android:textSize="16sp"
+            android:gravity="center_horizontal"
+            android:text="곽기태 박승윤 방찬석 이나형"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:fontFamily="@font/cafe24oneprettynight" />
     </LinearLayout>
 
-<!--    <LinearLayout-->
+    <!--    <LinearLayout-->
 <!--        android:id="@+id/project"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->

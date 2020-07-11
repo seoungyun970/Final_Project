@@ -1,17 +1,16 @@
 package com.example.myapplication.Child;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.myapplication.Manager.ManagerMyinfo;
-import com.example.myapplication.Manager.ManagerMyinfoUpdate;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.myapplication.R;
+import com.example.myapplication.Server.DataManager;
 
 public class ChildMyinfo extends AppCompatActivity {
     Toolbar mToolbar;
@@ -35,11 +34,15 @@ public class ChildMyinfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ChildMyinfo.this, ChildMyinfoUpdate.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
+        TextView myName=(TextView)findViewById(R.id.textView6);
+        String name= DataManager.getInstance().GetLoginUser().getName();
+        myName.setText(name);
     }
-
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작

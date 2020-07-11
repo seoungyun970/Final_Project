@@ -6,16 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".Manager.ManagerMyinfoUpdate">
 
+    <LinearLayout
+        android:id="@+id/linearLayout25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageView">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/main_corner"
+            android:fontFamily="@font/cafe24oneprettynight"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:onClick="upload"
+            android:text="업로드"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            tools:ignore="OnClick" />
+    </LinearLayout>
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/updatetoolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/manager_main_corner"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp"/>
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -24,189 +57,174 @@
             android:fontFamily="@font/cafe24oneprettynight"
             android:text="정보 수정"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="28sp"
+            tools:layout_editor_absoluteX="170dp"
+            tools:layout_editor_absoluteY="16dp" />
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:id="@+id/ImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updatetoolbar">
 
-        <ImageView
-            android:id="@+id/imagedata"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:src="@mipmap/ic_launcher" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:foregroundGravity="center"
-            android:gravity="center"
-            android:onClick="upload"
-            android:text="업로드"
-            tools:ignore="OnClick" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/chatImage1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@drawable/profile333"
+            android:scaleType="centerCrop" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/main_corner"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/updatetoolbar">
+        app:layout_constraintBottom_toTopOf="@+id/updateBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout25">
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearEmail"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="  아이디"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/cafe24oneprettynight" />
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:text=" 이메일"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/MGemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:ems="16"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearAddr"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_weight="1"
-            android:ems="17"
-            android:inputType="textPersonName" />
-    </LinearLayout>
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/linearNick"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/linearId">
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:text=" 주소"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/MGaddr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:ems="16"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearNick"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="  닉네임"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/cafe24oneprettynight" />
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:text=" 닉네임"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/MGname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:ems="16"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearPhone"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_weight="1"
-            android:ems="17"
-            android:inputType="textPersonName" />
-    </LinearLayout>
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/linearPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/linearNick">
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:text=" 전화번호"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="  전화번호"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/cafe24oneprettynight" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_weight="1"
-            android:ems="17"
-            android:inputType="textPersonName" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/linearPhone">
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="  이메일"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/cafe24oneprettynight" />
-
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_weight="1"
-            android:ems="17"
-            android:inputType="textPersonName" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearAddr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/linearEmail">
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="  주소"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/cafe24oneprettynight" />
-
-        <EditText
-            android:id="@+id/editText4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_weight="1"
-            android:ems="17"
-            android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/MGPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:ems="16"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:inputType="textPersonName" />
+        </LinearLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/button32"
-        android:layout_width="wrap_content"
+        android:id="@+id/updateBtn"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
+        android:background="@drawable/grad_color_bottom"
         android:text="수정"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:fontFamily="@font/cafe24oneprettynight"
+        android:fontFamily="@font/cafe24oneprettynight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearAddr" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

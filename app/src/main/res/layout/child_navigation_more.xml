@@ -1,40 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/moretoolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:layout_alignParentTop="true">
-
-    <TextView
-        android:id="@+id/toolbar_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="@font/cafe24oneprettynight"
-        android:text="더보기"
-        android:textColor="#000000"
-        android:textSize="20sp" />
-
-    </androidx.appcompat.widget.Toolbar>
-
 
     <LinearLayout
+        android:id="@+id/project"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/project"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:onClick="onClick"
         android:orientation="horizontal"
-        android:layout_below="@id/moretoolbar"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/cprojectbtn"
@@ -50,75 +33,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/notice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="onClick"
-        android:orientation="horizontal"
-        android:layout_below="@id/project">
-
-        <Button
-            android:id="@+id/cnoticebtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            android:fontFamily="@font/cafe24oneprettynight"
-            android:gravity="left|center_vertical"
-            android:onClick="onClick"
-            android:text="      공지사항"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/event"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="onClick"
-        android:orientation="horizontal"
-        android:layout_below="@id/notice"/>
-
-    <LinearLayout
-        android:id="@+id/setting"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="onClick"
-        android:orientation="horizontal"
-        android:layout_below="@id/event">
-
-        <Button
-            android:id="@+id/csettingbtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ffffff"
-            android:fontFamily="@font/cafe24oneprettynight"
-            android:gravity="left|center_vertical"
-            android:onClick="onClick"
-            android:text="      설정"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="onClick"
-        android:orientation="horizontal"
-        android:layout_below="@id/setting"/>
-
-    <LinearLayout
         android:id="@+id/signout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:onClick="onClick"
         android:orientation="horizontal"
-        android:layout_below="@id/ask">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/project">
 
         <Button
             android:id="@+id/csignoutbtn"
@@ -138,9 +60,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/signout"
-        android:layout_marginTop="333dp"
+        android:layout_marginBottom="5dp"
         android:onClick="onClick"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <TextView
@@ -179,4 +104,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

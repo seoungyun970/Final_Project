@@ -8,9 +8,19 @@ public class SunhansVO {
     String addr;
     String phone;
     String email;
+
     String points;
     String admin;
     String Enter;
+    String profile;
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
+
     public String getId() {
         return id;
     }
@@ -95,6 +105,7 @@ public class SunhansVO {
                 ", points='" + points + '\'' +
                 ", admin='" + admin + '\'' +
                 ", Enter='" + Enter + '\'' +
+                ", Profile='" + profile + '\'' +
                 '}';
     }
 }

@@ -1,9 +1,6 @@
 package com.example.myapplication.Manager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -14,16 +11,21 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.myapplication.Child.ChildMain;
-import com.example.myapplication.JSON.JSON;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.myapplication.LoginActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.Server.DataManager;
 import com.example.myapplication.VO.SunhansVO;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
@@ -35,14 +37,18 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
-public class ManagerMyinfoUpdate extends Activity {
+public class ManagerMyinfoUpdate extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 0;
-    private ImageView imageView;
+    public SimpleDraweeView myImage;
     String img_path;
     String imageName;
+    Toolbar mToolbar;
+
+    EditText name,phone,email,adress;
+    Button updateBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -52,10 +58,11 @@ public class ManagerMyinfoUpdate extends Activity {
                 .permitNetwork().build());
 
         super.onCreate(savedInstanceState);
+        Fresco.initialize(this);
         setContentView(R.layout.manager_myinfoupdate_activity);
-        imageView = findViewById(R.id.imagedata);
+        myImage = findViewById(R.id.chatImage1);
 
-        imageView.setOnClickListener(new View.OnClickListener(){
+        myImage.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
@@ -65,28 +72,68 @@ public class ManagerMyinfoUpdate extends Activity {
             }
         });
         tedPermission();
+
+        final SunhansVO loginuser= DataManager.getInstance().GetLoginUser();
+
+        updateBtn=findViewById(R.id.updateBtn);
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SunhansRegisterUser task = new SunhansRegisterUser();
+                task.execute(name.getText().toString()
+                        ,phone.getText().toString()
+                        ,email.getText().toString()
+                        ,adress.getText().toString()
+                        ,loginuser.getId());
+            }
+        });
+
+        name=findViewById(R.id.MGname); name.setText(loginuser.getName());
+        phone=findViewById(R.id.MGPhone); phone.setText(loginuser.getPhone());
+        email=findViewById(R.id.MGemail); email.setText(loginuser.getEmail());
+        adress=findViewById(R.id.MGaddr); adress.setText(loginuser.getAddr());
+
+
+
+
+        mToolbar = (Toolbar)findViewById(R.id.updatetoolbar);
+        setSupportActionBar(mToolbar);
+        // 툴바 뒤로가기 버튼생성
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // 툴바 타이틀 삭제
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        Uri uri;
+        uri = Uri.parse("http://3.12.173.221:8080/SunhanWeb/"+loginuser.getProfile());
+        myImage.setImageURI(uri);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 try {
                     InputStream in = getContentResolver().openInputStream(data.getData());
-
                     Bitmap img = BitmapFactory.decodeStream(in);
                     in.close();
-
-                    imageView.setImageBitmap(img);
+                    myImage.setImageURI(data.getData());
 
 
                 } catch (Exception e) {
 
                 }
                 img_path = getImagePathToUri(data.getData()); //이미지의 URI를 얻어 경로값으로 반환.
-                System.out.println(img_path+"zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
             }
@@ -107,6 +154,7 @@ public class ManagerMyinfoUpdate extends Activity {
         String imgPath = cursor.getString(column_index);
 
         String thePath = "no-path-found";
+
         String[] filePathColumn = {MediaStore.Images.Media.DATA};
         Cursor cursor2 = getContentResolver().query(data, filePathColumn, null, null, null);
         if(cursor.moveToFirst()){
@@ -114,12 +162,12 @@ public class ManagerMyinfoUpdate extends Activity {
             thePath = cursor.getString(columnIndex);
         }
         cursor2.close();
-
+        System.out.println(thePath);
         //이미지의 이름 값
         String imgName = imgPath.substring(imgPath.lastIndexOf("/") + 1);
         Toast.makeText(ManagerMyinfoUpdate.this, "이미지 이름 : " + imgName, Toast.LENGTH_SHORT).show();
         this.imageName = imgName;
-        System.out.println(imageName+"dd");
+        System.out.println(imageName);
         return imgPath;
     }
     public void DoFileUpload(String absolutePath) {
@@ -143,16 +191,11 @@ public class ManagerMyinfoUpdate extends Activity {
             super.onPreExecute();
             loading = ProgressDialog.show(ManagerMyinfoUpdate.this, "업로드 중입니다.", null, true, true);
         }
-
         @Override
         //2번
         protected String doInBackground(String... params) {
             try {
-                System.out.println(img_path);
-                FileInputStream mFileInputStream = new FileInputStream(img_path);
-                URL connectUrl = new URL("http://3.12.173.221:8080/SunhanWeb/android/andImageUpload.jsp");
-                //URL connectUrl = new URL("http://localhost:8181/SunhanWeb/android/andImageUpload.jsp");
-                // HttpURLConnection 통신
+                URL connectUrl = new URL("http://3.12.173.221:8080/SunhanWeb/andImageUpload.do");
                 HttpURLConnection conn = (HttpURLConnection) connectUrl.openConnection();
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
@@ -160,36 +203,42 @@ public class ManagerMyinfoUpdate extends Activity {
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Connection", "Keep-Alive");
                 conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
+                conn.setRequestProperty("img_1",img_path);
                 conn.connect();
-                // write data
+
                 DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
+
+                String filename=((LoginActivity) LoginActivity.context_main).user.getId();
+
                 dos.writeBytes(twoHyphens + boundary + lineEnd);
-                dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + img_path + "\"" + lineEnd);
+                dos.writeBytes("Content-Disposition: form-data; name=\""+filename+"\";filename=\"" + img_path + "\"" + lineEnd);
                 dos.writeBytes(lineEnd);
 
-                int bytesAvailable = mFileInputStream.available();
-                int maxBufferSize = 1024;
-                int bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                FileInputStream mFileInputStream = new FileInputStream(img_path);
 
-                byte[] buffer = new byte[bufferSize];
-                int bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
+
+                int bytesAvailable3 = mFileInputStream.available();
+                int maxBufferSize3 = 1024;
+                int bufferSize3 = Math.min(bytesAvailable3, maxBufferSize3);
+
+                byte[] buffer3 = new byte[bufferSize3];
+                int bytesRead3 = mFileInputStream.read(buffer3, 0, bufferSize3);
 
 
                 // read image
-                while (bytesRead > 0) {
-                    dos.write(buffer, 0, bufferSize);
-                    bytesAvailable = mFileInputStream.available();
-                    bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                    bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
+                while (bytesRead3 > 0) {
+                    dos.write(buffer3, 0, bufferSize3);
+                    bytesAvailable3 = mFileInputStream.available();
+                    bufferSize3 = Math.min(bytesAvailable3, maxBufferSize3);
+                    bytesRead3 = mFileInputStream.read(buffer3, 0, bufferSize3);
                 }
 
+                mFileInputStream.close();
                 dos.writeBytes(lineEnd);
                 dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
 
-                mFileInputStream.close();
                 dos.flush();
-                // finish upload...
-
+                dos.close();
                 // get response
                 InputStream is = conn.getInputStream();
 
@@ -198,12 +247,15 @@ public class ManagerMyinfoUpdate extends Activity {
                     b.append((char) ch);
                 }
                 is.close();
+                System.out.println(b.toString());
                 return b.toString();
             } catch (Exception e) {
                 // TODO: handle exception
             }
             return "1";
         }
+
+
 
         protected void onPostExecute(String result)
         {
@@ -220,8 +272,8 @@ public class ManagerMyinfoUpdate extends Activity {
             }
             else {
                 Toast.makeText(getApplicationContext(),"업로드 성공",Toast.LENGTH_LONG).show();
-
-                System.out.println("성공");
+                final SunhansVO loginuser=DataManager.getInstance().GetLoginUser();
+                loginuser.setProfile("profile/"+imageName);
             }
         }
     }
@@ -252,5 +304,67 @@ public class ManagerMyinfoUpdate extends Activity {
                 .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
                 .check();
 
+    }
+
+    private class SunhansRegisterUser extends AsyncTask<String, String, String>
+    {
+        ProgressDialog loading;
+        URL register_url;
+        protected void onPreExecute() {
+            super.onPreExecute();
+            loading = ProgressDialog.show(ManagerMyinfoUpdate.this, "정보를 업데이트 중입니다.!", null, true, true);
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try{
+                String URL ="http://3.12.173.221:8080/SunhanWeb/androidSunhansUpdateServlet.do";
+                String _name = (String) params[0];
+                String _phone = (String) params[1];
+                String _email = (String) params[2];
+                String _addr=(String) params[3];
+                String _userid=(String) params[4];
+
+                String url_address = URL
+                        + "?name=" + _name
+                        + "&phone=" + _phone
+                        + "&email=" + _email
+                        + "&addr=" + _addr
+                        + "&userid=" + _userid ;
+                System.out.println(url_address);
+                register_url = new URL(url_address);
+                BufferedReader in = new BufferedReader(new InputStreamReader(register_url.openStream()));
+
+                String result = "";
+                String temp = "";
+                while ((temp = in.readLine()) != null) {
+                    result += temp;
+                }
+                in.close();
+                return result;
+            }catch (Exception e){
+                return new String("Exception : " + e.getMessage());
+            }
+        }
+        protected void onPostExecute(String result)
+        {
+            super.onPostExecute(result);
+            loading.dismiss();
+            if(result=="1")
+            {
+                Toast.makeText(getApplicationContext(),"업로드 실패",Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"업로드 성공",Toast.LENGTH_LONG).show();
+                final SunhansVO loginuser=DataManager.getInstance().GetLoginUser();
+                loginuser.setName(name.getText().toString());
+                loginuser.setPhone(phone.getText().toString());
+                loginuser.setEmail(email.getText().toString());
+                loginuser.setAddr(adress.getText().toString());
+            }
+            Intent intent = new Intent(ManagerMyinfoUpdate.this, ManagerMyinfo.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+
+        }
     }
 }

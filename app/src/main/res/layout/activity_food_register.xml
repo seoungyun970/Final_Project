@@ -2,9 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login4"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/foodtoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/manager_main_corner"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cafe24oneprettynight"
+            android:text="매장등록"
+            android:textColor="#000000"
+            android:textSize="28sp" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,23 +44,6 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/cafe24oneprettynight"
-                    android:gravity="center"
-                    android:text="매장 등록"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="14dp"
@@ -42,7 +51,7 @@
                 android:layout_weight="0">
 
                 <TextView
-                    android:layout_width="65dp"
+                    android:layout_width="75dp"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/cafe24oneprettynight"
                     android:gravity="center_vertical"
@@ -72,7 +81,7 @@
 
                 <TextView
                     android:id="@+id/textView6"
-                    android:layout_width="65dp"
+                    android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cafe24oneprettynight"
                     android:text="주소"
@@ -129,7 +138,7 @@
                 android:layout_marginRight="30dp">
 
                 <TextView
-                    android:layout_width="65dp"
+                    android:layout_width="75dp"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/cafe24oneprettynight"
                     android:gravity="center_vertical"
@@ -172,10 +181,30 @@
                     android:layout_height="200dp"
                     android:layout_weight="1"
                     android:onClick="onClick"
-                    android:src="@drawable/insertstore">
+
+                    >
 
                 </ImageView>
+                <ImageView
+                    android:id="@+id/storePic2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:onClick="onClick"
 
+                    >
+
+                </ImageView>
+                <ImageView
+                    android:id="@+id/storePic3"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:onClick="onClick"
+
+                    >
+
+                </ImageView>
             </LinearLayout>
 
             <LinearLayout
@@ -190,7 +219,7 @@
 
                 <TextView
                     android:id="@+id/textView13"
-                    android:layout_width="65dp"
+                    android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/cafe24oneprettynight"
@@ -209,23 +238,22 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="65dp"
+                    android:layout_width="75dp"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/cafe24oneprettynight"
                     android:gravity="center_vertical"
-                    android:text="영업시간"
+                    android:text="오픈시간"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/storeTime"
+                    android:id="@+id/openTime"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:fontFamily="@font/cafe24oneprettynight"
                     android:inputType="textPersonName" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -235,11 +263,36 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="65dp"
+                    android:layout_width="75dp"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/cafe24oneprettynight"
                     android:gravity="center_vertical"
-                    android:text="전화번호"
+                    android:text="마감시간"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/finishTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:gravity="center_vertical"
+                    android:text="이메일"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -264,7 +317,7 @@
 
                 <TextView
                     android:id="@+id/textView14"
-                    android:layout_width="65dp"
+                    android:layout_width="75dp"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/cafe24oneprettynight"
                     android:text="카테고리"
@@ -272,8 +325,9 @@
                     android:textStyle="bold" />
 
                 <RadioGroup
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
 
@@ -283,7 +337,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/cafe24oneprettynight"
                         android:onClick="onClick"
-                        android:text="한식" />
+                        android:text="한식"
+                        android:textSize="13sp" />
 
                     <RadioButton
                         android:id="@+id/foodButton2"
@@ -291,7 +346,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/cafe24oneprettynight"
                         android:onClick="onClick"
-                        android:text="중식" />
+                        android:text="중식"
+                        android:textSize="13sp" />
 
                     <RadioButton
                         android:id="@+id/foodButton3"
@@ -299,7 +355,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/cafe24oneprettynight"
                         android:onClick="onClick"
-                        android:text="양식" />
+                        android:text="양식"
+                        android:textSize="13sp" />
 
                     <RadioButton
                         android:id="@+id/foodButton4"
@@ -307,15 +364,17 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/cafe24oneprettynight"
                         android:onClick="onClick"
-                        android:text="일식" />
+                        android:text="일식"
+                        android:textSize="13sp" />
 
                     <RadioButton
                         android:id="@+id/foodButton5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/cafe24oneprettynight"
                         android:onClick="onClick"
                         android:text="분식"
-                        android:fontFamily="@font/cafe24oneprettynight" />
+                        android:textSize="13sp" />
 
                     <RadioButton
                         android:id="@+id/foodButton6"
@@ -323,7 +382,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/cafe24oneprettynight"
                         android:onClick="onClick"
-                        android:text="디저트" />
+                        android:text="디저트"
+                        android:textSize="13sp" />
 
                 </RadioGroup>
 
@@ -358,7 +418,35 @@
                     android:ems="17"
                     android:inputType="textPersonName" />
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearComent1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:text="가게정보"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_weight="1"
+                    android:ems="17"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -379,7 +467,7 @@
 
                 <Spinner
                     android:id="@+id/spinner"
-                    android:entries="@array/서울"
+                    android:entries="@array/spinnerArea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2" />
@@ -389,16 +477,16 @@
                 android:id="@+id/storeBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/register_confirm"
+                android:background="@drawable/grad_color_bottom"
                 android:fontFamily="@font/cafe24oneprettynight"
                 android:onClick="onClick"
                 android:text="확인"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearComent" />
+                app:layout_constraintTop_toBottomOf="@+id/linearComent1" />
 
         </LinearLayout>
     </ScrollView>

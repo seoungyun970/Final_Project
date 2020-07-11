@@ -1,12 +1,9 @@
 package com.example.myapplication;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-
-import java.io.IOException;
-import java.lang.Object;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +11,6 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
-import java.io.EOFException;
 import java.io.InputStreamReader;
 import java.net.URL;
 

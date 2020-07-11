@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="12dp"
+        card_view:cardCornerRadius="4dp">
+
+        <LinearLayout
+            android:id="@+id/childreservelinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/cstatename"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/cafe24oneprettynight"
+                        android:gravity="center"
+                        android:text="가게명 "
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/cstatetime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/cafe24oneprettynight"
+                        android:gravity="center"
+                        android:text="방문예정시간 "
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cstatepeople"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/cafe24oneprettynight"
+                        android:gravity="center"
+                        android:text="방문인원 "
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TextView_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="#70FFFFFF"
+                        android:ellipsize="none"
+                        android:fontFamily="@font/cafe24oneprettynight"
+                        android:text="가게명?"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:id="@+id/TextView_Content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/cafe24oneprettynight"
+                        android:text="방문예정시간?"
+                        android:textColor="#000000"
+                        android:textSize="16sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/TextView_People"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/cafe24oneprettynight"
+                        android:text="방문인원?"
+                        android:textColor="#000000"
+                        android:textSize="16sp"></TextView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/reserveStateBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#FFFFFF"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:text="예약상태버튼?"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/TextView_ment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:gravity="center"
+                    android:text="거절사유?"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:visibility="visible"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/reserveCancelBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/main_corner"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:text="예약취소"
+                    android:textColor="#000000" />
+
+            </LinearLayout>
+
+            <!--            <Button-->
+            <!--                android:id="@+id/reviewBtn"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:text="리뷰쓰기"/>-->
+            <TextView
+                android:id="@+id/reserveHourText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:text="시간: "
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/reserveHourEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:inputType="phone"
+                android:textColor="#000000"></EditText>
+
+            <TextView
+                android:id="@+id/reserveMinText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:text="분: "
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/reserveMinEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:inputType="phone"
+                android:textColor="#000000"></EditText>
+
+            <TextView
+                android:id="@+id/reservePeopleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:text="인원수: "
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/reservePeopleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:fontFamily="@font/cafe24oneprettynight"
+                android:inputType="phone"
+                android:textColor="#000000"></EditText>
+            <!--            <Button-->
+            <!--                android:id="@+id/reserveStateBtn2"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:text="예약승인"/>-->
+            <!--            <Button-->
+            <!--                android:id="@+id/reserveStateBtn3"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:text="예약거부"/>-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/reserveFuseBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/main_corner"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:text="예약수정"
+                    android:textColor="#000000" />
+
+                <Button
+                    android:id="@+id/nullBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/main_corner"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:text="예약취소"
+                    android:textColor="#000000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/finishBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/main_corner"
+                    android:drawableLeft="@drawable/officesokay"
+                    android:drawablePadding="5dip"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:padding="5dp"
+                    android:text="확인"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/reviewBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/main_corner"
+                    android:drawableLeft="@drawable/officesokay"
+                    android:drawablePadding="5dip"
+                    android:fontFamily="@font/cafe24oneprettynight"
+                    android:padding="5dp"
+                    android:text="리뷰쓰기"
+                    android:textColor="#000000"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

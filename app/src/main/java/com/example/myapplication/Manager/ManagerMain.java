@@ -1,12 +1,12 @@
 package com.example.myapplication.Manager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,55 +18,77 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.myapplication.Child.ChildMain;
+import com.example.myapplication.Child.ChildMainChatList;
 import com.example.myapplication.FoodActivity;
-import com.example.myapplication.Pager.Fragment1;
-import com.example.myapplication.Pager.Fragment2;
-import com.example.myapplication.Pager.Fragment3;
+import com.example.myapplication.LoginActivity;
+import com.example.myapplication.Pager.MyPagerAdapter;
+import com.example.myapplication.Pager.ViewPagerItemFragment;
 import com.example.myapplication.R;
+import com.example.myapplication.StoreDetailReview;
+import com.example.myapplication.VO.SunhansVO;
+import com.example.myapplication.models.Hat;
+import com.example.myapplication.resources.Hats;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
 public class ManagerMain extends AppCompatActivity implements View.OnClickListener {
     ImageView storeRegister;
+    ImageView storeComnuity;
+    ImageView imageView5;
+    ImageView managerReview;
     TextView mainname;
     Toolbar myToolbar;
+    ImageView managerMainReserveBtn;
+    String a;
+    String id,storeid;
+    private ViewPager mMyViewPager;
+    private TabLayout mTabLayout;
+
+    public static Context context_main;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_main_activity);
         mainname=findViewById(R.id.mainName);
         storeRegister=findViewById(R.id.storeRegister);
+        storeComnuity=findViewById(R.id.storeComunity);
+        imageView5=findViewById(R.id.imageView5);
+        managerReview=findViewById(R.id.managerReview);
+        managerMainReserveBtn=findViewById(R.id.managerMainReserveBtn);
         // 추가된 소스, Toolbar를 생성
         myToolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
         // 툴바 타이틀 삭제
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
+        context_main = this;
         //메인 이름
         Intent intent=getIntent();
-        String username=intent.getExtras().getString("a");
-        mainname.setText(username);
-
+//        String username=intent.getExtras().getString("a");
+//        mainname.setText(username);
+        SunhansVO user2=((LoginActivity) LoginActivity.context_main).user;
+        a=user2.getName();
+        id=user2.getId();
+        storeid=user2.getId();
+        mainname.setText(a);
         storeRegister.setOnClickListener(this);
+        storeComnuity.setOnClickListener(this);
 
-        //뷰 페이저
-        ViewPager pager = findViewById(R.id.pager);
-        pager.setOffscreenPageLimit(3);
+        mTabLayout = findViewById(R.id.tab_layout);
+        mMyViewPager = findViewById(R.id.pager);
 
-        ManagerMain.MoviePagerAdapter adapter = new ManagerMain.MoviePagerAdapter(getSupportFragmentManager());
-
-        Fragment1 fragment1 = new Fragment1();
-        adapter.addItem(fragment1);
-
-        Fragment2 fragment2 = new Fragment2();
-        adapter.addItem(fragment2);
-
-        Fragment3 fragment3 = new Fragment3();
-        adapter.addItem(fragment3);
-
-        pager.setAdapter(adapter);
-
+        init();
+    }
+    private void init(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        Hat[] hats = Hats.getHats();
+        for(Hat hat: hats){
+            ViewPagerItemFragment fragment = ViewPagerItemFragment.getInstance(hat);
+            fragments.add(fragment);
+        }
+        MyPagerAdapter pagerAdapter = new MyPagerAdapter(getSupportFragmentManager(), fragments);
+        mMyViewPager.setAdapter(pagerAdapter);
+        mTabLayout.setupWithViewPager(mMyViewPager, true);
     }
     //추가된 소스, ToolBar에 menu.xml을 인플레이트함
 
@@ -114,6 +136,10 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
 //                Intent intent2=new Intent(ManagerMain.this, ComunityActivity.class);
 //                startActivity(intent2);
 //                break;
+            case R.id.storeComunity:
+                Intent intent5=new Intent(ManagerMain.this, ManagerComunity.class);
+                startActivity(intent5);
+                break;
             case R.id.storeRegister:
                 Intent intent4=new Intent(ManagerMain.this, FoodActivity.class);
                 startActivity(intent4);
@@ -121,6 +147,20 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
             case R.id.msetting:
                 Intent intent3=new Intent(ManagerMain.this, ManagerMore.class);
                 startActivity(intent3);
+                break;
+            case R.id.managerMainReserveBtn:
+                Intent intent6=new  Intent(ManagerMain.this,ManagerReserve.class);
+                startActivity(intent6);
+                break;
+            case R.id.imageView5:
+                Intent intent7=new Intent(ManagerMain.this, ChildMainChatList.class);
+                startActivity(intent7);
+                break;
+            case  R.id.managerReview:
+                Intent intent8=new Intent(ManagerMain.this, StoreDetailReview.class);
+                intent8.putExtra("userid",id);
+                intent8.putExtra("storeid",storeid);
+                startActivity(intent8);
                 break;
         }
     }
@@ -148,6 +188,10 @@ public class ManagerMain extends AppCompatActivity implements View.OnClickListen
             return items.size();
         }
     }
+
+
+
+
 
 
 

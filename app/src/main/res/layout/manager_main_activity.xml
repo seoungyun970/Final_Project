@@ -4,128 +4,134 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8E8E8"
+    android:background="@drawable/login1"
     android:orientation="vertical"
     tools:context=".Child.ChildMain"
     android:weightSum="1">
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout8"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.55"
+        android:layout_height="wrap_content"
         android:background="@drawable/manager_main_corner"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp"/>
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cafe24oneprettynight"
+            android:text="Good Influence"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            tools:layout_editor_absoluteX="144dp"
+            tools:layout_editor_absoluteY="11dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/mainName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="#F88282"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/cafe24oneprettynight" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="님"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:fontFamily="@font/cafe24oneprettynight" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Suspicious0dp">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/cafe24oneprettynight"
-                android:text="선한 영향력"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="144dp"
-                tools:layout_editor_absoluteY="11dp" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <LinearLayout
-            android:id="@+id/linearLayout7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout3">
-
-            <TextView
-                android:id="@+id/mainName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="#F88282"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:fontFamily="@font/cafe24oneprettynight" />
-
-            <TextView
-                android:id="@+id/textView32"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="님"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:fontFamily="@font/cafe24oneprettynight" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
 
 
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="오늘도 소중한 방문 감사드립니다."
-                android:textSize="22sp"
-                android:textStyle="bold"
-                app:fontFamily="@font/cafe24oneprettynight" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout9"
+        <TextView
+            android:id="@+id/textView18"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/pager"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="20dp" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="오늘도 소중한 방문 감사드립니다."
+            android:textColor="#000000"
+            android:textSize="22sp"
+            app:fontFamily="@font/cafe24oneprettynight" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="wrap_content"
+            android:layout_height="230dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="fill"
+        app:tabIndicatorHeight="0dp"
+        app:tabMaxWidth="10dp"></com.google.android.material.tabs.TabLayout>
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.45"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginBottom="14dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/main_corner"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -135,9 +141,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="40dp"
             android:layout_weight="1"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
@@ -158,9 +164,11 @@
                 app:fontFamily="@font/cafe24oneprettynight" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/managerReview"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_marginTop="35dp"
+                android:onClick="onClick"
                 android:src="@drawable/meeting" />
 
             <TextView
@@ -168,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="소통하기"
+                android:text="리뷰확인"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 app:fontFamily="@font/cafe24oneprettynight" />
@@ -177,15 +185,16 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="40dp"
             android:layout_weight="1"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/managerMainReserveBtn"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:onClick="onClick"
                 android:src="@drawable/reserve11" />
 
             <TextView
@@ -200,52 +209,11 @@
                 app:fontFamily="@font/cafe24oneprettynight" />
 
             <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/complain" />
-
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="고객센터"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                app:fontFamily="@font/cafe24oneprettynight" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/web" />
-
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:text="게시판"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                app:fontFamily="@font/cafe24oneprettynight" />
-
-            <ImageView
                 android:id="@+id/msetting"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="35dp"
                 android:onClick="onClick"
                 android:src="@drawable/more111" />
 
@@ -259,10 +227,58 @@
                 android:textColor="#000000"
                 android:textStyle="bold"
                 app:fontFamily="@font/cafe24oneprettynight" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="onClick"
+                android:src="@drawable/chat11" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="채팅"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:fontFamily="@font/cafe24oneprettynight" />
+
+            <ImageView
+                android:id="@+id/storeComunity"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="35dp"
+                android:background="#FFFFFF"
+                android:onClick="onClick"
+                android:src="@drawable/point" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:fontFamily="@font/cafe24oneprettynight" />
+
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,11 +18,15 @@ import androidx.annotation.Nullable;
 import com.example.myapplication.Child.ChildMain;
 import com.example.myapplication.JSON.JSON;
 import com.example.myapplication.Manager.ManagerMain;
+import com.example.myapplication.Server.DataManager;
 import com.example.myapplication.VO.SunhansVO;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
@@ -30,6 +35,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     EditText loginId, loginPwd;
     public static Context context_main; // context 변수 선언
     String name;
+    public SunhansVO user;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         loginPwd = findViewById(R.id.loginPwd);
         registerBtn.setOnClickListener(this);
         context_main = this;
+        tedPermission();
     }
 
     @Override
@@ -52,15 +59,14 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             case R.id.loginBtn:
                 String _id  = loginId.getText().toString();
                 String _pw = loginPwd.getText().toString();
-
-                Intent intent1 = new Intent( LoginActivity.this, main.class );
+                Intent intent1 = new Intent(LoginActivity.this, main.class);
                 intent1.putExtra("_id",_id);
                 intent1.putExtra("_pw",_pw);
                 LoginActivity.RegisterUser task = new LoginActivity.RegisterUser();
                 task.execute(_id, _pw); //1번
                 break;
         }
-        }
+    }
     private class RegisterUser  extends AsyncTask<String, String, String>
     {
         ProgressDialog loading;
@@ -107,7 +113,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         protected void onPostExecute(String result)
         {
             super.onPostExecute(result);
-
+            System.out.println(result+"값!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             loading.dismiss();
 
             JSON js=new JSON();
@@ -115,19 +121,21 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
             String ad;//관리자 판단하는 스트링변수
 
+            SunhansVO usertemp = null;
 
 
             try {
                 //json값을 받아와서 선한vo로 형변환해줌 로그인유저라 list엔하나뿐.
-                SunhansVO user =(SunhansVO) List.get(0);
-                ad=user.getAdmin();//vo에 ad민을 위에 string ad넣어줌
-                name=user.getName();
+                usertemp =(SunhansVO) List.get(0);
+                ad=usertemp.getAdmin();//vo에 ad민을 위에 string ad넣어줌
+                name=usertemp.getName();
+                user=usertemp;
+                DataManager.getInstance().SetLoginUser(user);
             }catch (Exception e)
             {
                 ad="-1";//리스트에 아무것도없다면 로그인유저가없어서 -1
             }
 
-            System.out.println(ad+"jsonn에서 받아온 admin값");
             // 0 아동
             if(ad.equals("0")){
                 Intent intent1=new Intent(LoginActivity.this,ChildMain.class);
@@ -137,9 +145,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             //1 후원자
             if(ad.equals("1")){
                 Intent intent=new Intent(getApplicationContext(), ManagerMain.class);
-                String userName=name.toString();
-                intent.putExtra("a",userName);
-                System.out.println(userName);
+//                String userName=name.toString();
+//                intent.putExtra("a",userName);
+//                System.out.println(userName);
                 Toast.makeText(getApplicationContext(),"관리자용입니다.",Toast.LENGTH_LONG).show();
                 startActivity(intent);
             }
@@ -148,6 +156,29 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             }
 
         }
+    }
+    private void tedPermission() {
+
+        PermissionListener permissionListener = new PermissionListener() {
+            @Override
+            public void onPermissionGranted() {
+                // 권한 요청 성공
+
+            }
+
+            @Override
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                // 권한 요청 실패
+            }
+        };
+
+        TedPermission.with(this)
+                .setPermissionListener(permissionListener)
+                .setRationaleMessage(getResources().getString(R.string.permission_2))
+                .setDeniedMessage(getResources().getString(R.string.permission_1))
+                .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+                .check();
+
     }
 
 }

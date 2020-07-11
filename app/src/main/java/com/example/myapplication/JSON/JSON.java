@@ -37,6 +37,7 @@ public class JSON {
                 sunhans.setPoints(userob.getString("points"));
                 sunhans.setAdmin(userob.getString("admin"));
                 sunhans.setEnter(userob.getString("enter"));
+                sunhans.setProfile(userob.getString("profile"));
 
                 list.add(sunhans);//넣어줌
                 return list;//넣어진 리스트값 리턴
