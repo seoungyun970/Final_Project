@@ -11,5 +11,6 @@
 ![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/55783172/87222589-d47ee300-c3af-11ea-8e55-660c93d96d9e.gif)
 - 식당 예약/취소/승인/대기  (gif 용량이 큰관계로 2번에 나누어서 업로드했습니다)
 ![ezgif com-video-to-gif (4)](https://user-images.githubusercontent.com/55783172/87222703-f9c02100-c3b0-11ea-99dd-3ed40ed376ab.gif)
+![ezgif com-video-to-gif (6)](https://user-images.githubusercontent.com/55783172/87222735-5b808b00-c3b1-11ea-9f94-5e452fb8dddc.gif)
 - 식당 리뷰 추가/삭제/수정
 
