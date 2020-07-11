@@ -9,9 +9,9 @@
 ![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/55783172/87222542-3db22680-c3af-11ea-8e04-14b98803df56.gif)
 - TMap api 사용해서 주위 식당리스트 마커로 보여주기(도로명 주소 때 사용했던 값들을 지오코더로 위도 경도값으로 변환하여 사용),해당 식당클릭시 tmap과 연동되어 실시간 길찾기 서비스
 ![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/55783172/87222589-d47ee300-c3af-11ea-8e55-660c93d96d9e.gif)
-- 식당 예약/취소/승인/대기  (gif 용량이 큰관계로 2번에 나누어서 업로드했습니다)
+- 식당 예약/취소/승인/대기  (gif 용량이 큰관계로 2번에 나누어서 업로드)
 ![ezgif com-video-to-gif (4)](https://user-images.githubusercontent.com/55783172/87222703-f9c02100-c3b0-11ea-99dd-3ed40ed376ab.gif)
 ![ezgif com-video-to-gif (6)](https://user-images.githubusercontent.com/55783172/87222735-5b808b00-c3b1-11ea-9f94-5e452fb8dddc.gif)
-- 식당 리뷰 추가/삭제/수정  
-
+- 식당 리뷰 추가/삭제/수정  (gif 용량이 큰관계로 2번에 나누어서 업로드)
+![ezgif com-video-to-gif (7)](https://user-images.githubusercontent.com/55783172/87222876-bbc3fc80-c3b2-11ea-952e-4f60487094d1.gif)
 
